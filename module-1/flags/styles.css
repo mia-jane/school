@@ -1,0 +1,331 @@
+body {
+    background-color: pink;
+}
+.france-blue {
+    width: 100px;
+    height: 200px;
+    background-color: #001489;
+    
+}
+.france-white {
+    width: 100px;
+    height: 200px;
+    background-color: #FFFFFF;
+    position: relative;
+    left: 100px;
+    bottom: 200px;
+}
+.france-red {
+    width: 100px;
+    height: 200px;
+    background-color: #EF3340;
+    position: relative;
+    left:200px;
+    bottom:400px;
+}
+.germany {
+    position: absolute;
+    bottom: 300px;
+}
+.germany-yellow {
+    width: 300px;
+    height: 67px;
+    background-color: #ffff00;
+}
+.germany-red {
+    width: 300px;
+    height: 67px;
+    background-color: #ff0000;
+}
+.germany-black {
+    width: 300px;
+    height: 67px;
+    background-color: #000000;
+}
+.madagascar {
+    position: relative;
+    bottom: 100px;
+}
+.mad-white {
+    width: 100px;
+    height: 200px;
+    background-color: #ffffff;
+}
+.mad-red {
+    width: 200px;
+    height: 100px;
+    background-color: #EF3340;
+    position: relative;
+    left: 100px;
+    bottom: 200px;
+
+}
+.mad-green {
+    width: 200px;
+    height: 100px;
+    background-color: #228B22;
+    position: relative;
+    left: 100px;
+    bottom: 200px;
+}
+.switzerland {
+    position:relative;
+    bottom: 275px;
+}
+.switz-red {
+    width: 300px;
+    height: 200px;
+    background-color: #ff0000;
+}
+.switz-criss {
+    width: 150px;
+    height: 50px;
+    background-color: #ffffff;
+    position: absolute;
+    bottom: 75px;
+    left: 70px;
+}
+.switz-cross {
+    width: 50px;
+    height: 150px;
+    background-color: #ffffff;
+    position: absolute;
+    bottom: 30px;
+    left: 122px;
+}
+.sweden {
+    position: relative;
+    bottom: 225px;
+}
+.sweden-blue {
+    width: 300px;
+    height: 200px;
+    background-color: #004B87;
+}
+.sweden-hcross {
+    width: 300px;
+    height: 30px;
+    background-color: #ffcd00;
+    position: absolute;
+    bottom: 80px;
+}
+.sweden-vcross {
+    width: 30px;
+    height: 200px;
+    background-color: #ffcd00;
+    position: absolute;
+    bottom: 0px;
+    left: 90px;
+}
+.gambia {
+    position: relative;
+    bottom: 160px;
+}
+.gambia-red {
+    width: 300px;
+    height:75px;
+    background-color: #ef3340;
+}
+.gambia-white-one {
+    width: 300px;
+    height: 10px;
+    background-color: #ffffff;
+}
+.gambia-blue {
+    width: 300px;
+    height: 40px;
+    background-color: #003DA5;
+}
+.gambia-white-two {
+    width: 300px;
+    height: 10px;
+    background-color: #ffffff;
+}
+.gambia-green {
+    width: 300px;
+    height: 75px;
+    background-color: #009639;
+}
+.tonga {
+    position: relative;
+    bottom: 100px;
+}
+.tonga-red {
+    width: 300px;
+    height: 200px;
+    background-color: #EF3340;
+}
+.tonga-white {
+    width: 150px;
+    height: 100px;
+    background-color: #ffffff;
+}
+.tonga-hcross {
+    width: 80px;
+    height: 25px;
+    background-color: #EF3340;
+    position: absolute;
+    bottom: 37px;
+    left: 33px;
+}
+.tonga-vcross {
+    width: 25px;
+    height: 80px;
+    background-color: #EF3340;
+    position: absolute;
+    bottom: 10px;
+    left: 60px;
+}
+.tonga-cross {
+    position: absolute;
+    bottom: 100px;
+}
+.japan {
+    position: relative;
+    bottom: 50px;
+}
+.japan-white {
+    width: 300px;
+    height: 200px;
+    background-color: #ffffff;
+}
+.japan-red {
+    width: 125px;
+    height: 125px;
+    background-color: #ef3340;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 40px;
+    left: 85px;
+}
+.greece {
+    position: relative;
+}
+.greece-stripe-1 {
+    width:300px;
+    height:23px;
+    background-color:#001489;
+}
+.greece-stripe-2 {
+    width:300px;
+    height:23px;
+    background-color:#ffffff;
+}
+.greece-stripe-3 {
+    width:300px;
+    height:23px;
+    background-color:#001489;
+}
+.greece-stripe-4 {
+    width:300px;
+    height:23px;
+    background-color:#ffffff;
+}
+.greece-stripe-5 {
+    width:300px;
+    height:23px;
+    background-color:#001489;
+}
+.greece-stripe-6 {
+    width:300px;
+    height:23px;
+    background-color:#ffffff;
+}
+.greece-stripe-7 {
+    width:300px;
+    height:23px;
+    background-color:#001489;
+}
+.greece-stripe-8 {
+    width:300px;
+    height:23px;
+    background-color:#ffffff;
+}
+.greece-stripe-9 {
+    width:300px;
+    height:23px;
+    background-color:#001489;
+}
+.greece-blue {
+    width: 100px;
+    height: 100px;
+    background-color: #001489;
+}
+.greece-hcross {
+    width: 100px;
+    height: 22px;
+    background-color: #ffffff;
+    position: absolute;
+    bottom: 31px;
+}
+.greece-vcross {
+    width: 22px;
+    height: 115px;
+    background-color: #ffffff;
+    position: absolute;
+    bottom: -15px;
+    left: 40px;
+}
+.greece-cross {
+    position: absolute;
+    bottom: 107px;
+}
+.niger {
+    position: relative;
+    top: 50px;
+}
+.niger-orange {
+    width: 300px;
+    height: 67px;
+    background-color: #ff8c00;
+}
+.niger-white {
+    width: 300px;
+    height: 67px;
+    background-color: #ffffff;
+}
+.niger-green {
+    width: 300px;
+    height: 67px;
+    background-color: #009639;
+}
+.niger-circle {
+    width: 60px;
+    height: 60px;
+    background-color: #ff8c00;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 70px;
+    left: 115px;
+}
+.maldives {
+    position:relative;
+    top: 100px;
+}
+.maldives-red {
+    width: 300px;
+    height: 200px;
+    background-color: #c8102e;
+}
+.green-with-moon {
+    width: 200px;
+    height: 110px;
+    background-color: #00843D;
+    position: absolute;
+    bottom: 40px;
+    left: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.maldives-moon {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    box-shadow: -14px 0 0 0.5px white;
+    border-radius: 50%;
+}
+
+
+
+

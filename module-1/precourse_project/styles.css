@@ -1,0 +1,30 @@
+body {
+    background-color: rgba(221, 198, 244, 0.4);
+}
+.box1 {
+    text-align: center;
+    background-color: lavender;
+    display: inline-block;
+    margin: 20px;
+}
+h1 {
+    color: black;
+}
+h2 {
+    color: black;
+    font-family: cursive;
+}
+img {
+    display: block;
+    margin-left:auto;
+    margin-right: auto;
+    width: 30%;
+}
+.box2 {
+    background-color: lavender;
+    margin: 20px;
+}
+.box3 {
+    background-color: lavender;
+    margin: 20px;
+}

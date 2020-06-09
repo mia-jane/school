@@ -1,0 +1,88 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h1 {
+    font-size: 50px;
+}
+h4 {
+    font-size: 20px;
+}
+
+p {
+    font-size: 20px;
+    padding: 20px;
+    border: 2px solid black;
+    margin: 40px;
+}
+
+#index #latte-art {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#index #latte-art > img {
+    max-width: 100%;
+    height: auto;
+}
+
+#index .about-text {
+    text-align: center;
+}
+#index > img {
+    width: 20%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#menu >section {
+    padding: 30px;
+    border: 2px solid black;
+    margin: 30px;
+}
+#menu .pastry-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+#menu .drink-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+#gallery #choc-croissant {
+    height: 450px;
+    margin: 10px;
+}
+#gallery #cafe-au-lait {
+    width: 300px;
+    margin: 10px;
+}
+#gallery #stout-pie {
+    width: 300px;
+    margin: 10px;
+}
+#gallery .pictures {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (min-width: 700px) {
+    #gallery .pictures {
+        flex-direction: row;
+        height: 500px;
+    }
+    #gallery #choc-croissant {
+        height: 200px;
+    }
+}
+
+
+
+
+
