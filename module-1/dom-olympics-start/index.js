@@ -38,5 +38,3 @@ var clearButton = document.querySelector("#clear-button")
 clearButton.addEventListener("click", function() {
     messages.remove(messages2)
 })
-
-
