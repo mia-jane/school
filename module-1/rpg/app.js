@@ -2,7 +2,11 @@ var readlineSync = require("readline-sync")
 
 //beginning stats
 var isAlive = true
-yourHealth = 50
+var yourHealth = 50
+var inventory = []
+
+var item = "stone"
+inventory.push(item)
 
 //choices
 var attackOrRun = ["attack", "run"]
@@ -46,6 +50,12 @@ function attackEnemy(){
     }if (yourHealth <= 0){
         death()
     }else if(enemyHealth <= 0){
+        console.log("you killed the creature")
+        yourHealth = yourHealth + 10
+        console.log("you gained 5 HP")
+        console.log("you have " + yourHealth + " HP left")
+        inventory.push(item)
+        console.log("you took " + item + " for your inventory")
         console.log("You did great.. Now let's go deeper into the woods")
         isAlive = true
     }
@@ -78,10 +88,10 @@ if (readlineSync.keyInYN("Want me to show you the forest?  It has lots of things
 
 //while walking through the woods
 while (isAlive === true){
-    var walk = readlineSync.question("please press w to walk ")
+    var walk = readlineSync.question("Type 'w' to walk.  Type 'print' to check inventory:  ")
     //walking
     if(walk == "w"){
-        console.log("you are walking")
+        console.log("you are walking through the forest")
         //are you getting attacked?
         var attackChance = Math.random()
         if (attackChance <= 0.25 ){
@@ -89,16 +99,21 @@ while (isAlive === true){
             var enemy = Math.random()
             if (enemy <= 1 / 3){
                 console.log("a kelpie is trying to drown you")
+                item = "kelp"
                 confrontCreature()
             } else if (enemy >= 2 / 3){
-                console.log("a banshee is screaming at you")
+                console.log("a hellhound is running towards you")
+                item = "canine tooth"
                 confrontCreature()
             } else{
-                console.log("a wraith is trying to steal your soul")
+                console.log("an unseelie goblin grabbed your ankle from underground and is pulling you")
+                item = "goblin nail"
                 confrontCreature()
             }
         }else { 
             console.log(walk)
         }
+    }if(walk === "print"){
+        console.log(inventory)
     }
 }
