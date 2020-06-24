@@ -36,17 +36,17 @@ function confrontCreature(){
 function attackEnemy(){
     var enemyHealth = 15
     while(enemyHealth > 0 && yourHealth > 0){
-        //var enemyHealth = 15
-        console.log("you attack")
-        var enemyDamage = Math.floor(Math.random() * 11)
-        console.log("you did " + enemyDamage + " points of damage")
-        enemyHealth = enemyHealth - enemyDamage
-        //console.log("the creature has" + enemyHealth)
+        //creature attacks first
         console.log("the creature attacks")
         var yourDamage = Math.floor(Math.random() * 16)
         yourHealth = yourHealth - yourDamage
         console.log("You lost " + yourDamage + " HP")
         console.log("You have " + yourHealth + " HP left")
+        //you retaliate
+        console.log("you attack")
+        var enemyDamage = Math.floor(Math.random() * 11)
+        console.log("you did " + enemyDamage + " points of damage")
+        enemyHealth = enemyHealth - enemyDamage
     }if (yourHealth <= 0){
         death()
     }else if(enemyHealth <= 0){
@@ -117,3 +117,4 @@ while (isAlive === true){
         console.log(inventory)
     }
 }
+//test git push
