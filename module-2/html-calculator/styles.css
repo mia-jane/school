@@ -1,0 +1,33 @@
+body{
+    background-color: lavender;
+    margin: 40px;
+}
+h1{
+    text-align: center;
+    font-family:'Courier New', 'Courier', 'monospace';
+    color: mediumpurple;
+}
+h3{
+    color: mediumpurple;
+}
+div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    margin: 20px;
+    padding: 10px;
+    background-color: lavenderblush;
+}
+button{
+    color: purple;
+    background-color: pink;
+    margin: 10px;
+}
+span{
+    color: mediumpurple;
+    font-size: 25px;
+    font-family: 'Courier New', 'Courier', 'monospace';
+    font-weight: bold;
+}
