@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>mario pest control</title>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+        <h1>Mario Pest Control</h1>
+        <ul>
+            <li name="">
+                <img src="https://giantbomb1.cbsistatic.com/uploads/scale_medium/0/6753/200638-goomba3d.jpg"/>
+                <span class="price">Goombas: 5 coins</span>
+                </li>
+            <li>
+                <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/bob-omb-prosper-daliono.jpg"/>
+                <span class="price">Bob-ombs: 7 coins</span>
+            </li>
+            <li>
+                <img id="cheep" src="https://images-na.ssl-images-amazon.com/images/I/41CO3wJWiOL._AC_.jpg"/>
+                <span id="cheep-span" class="price">Cheep-Cheeps: 11 coins</span>
+            </li>
+        </ul>
+        <form id="baddie-count-form">
+            <label for="goomba-count">Goombas caught:</label>
+            <input type="number" name="goomba-count"/>
+            <br>
+            <label for="Bob-omb-count">Bob-ombs caught:</label>
+            <input type="number" name="bob-omb-count"/>
+            <br>
+            <label for="cheepcheep-count">Cheep-cheeps caught:</label>
+            <input type="number" name="cheepcheep-count"/>
+            <br>
+            <button type="submit">Submit</button>
+            <div id="total-cost"></div>
+        </form>
+        <footer>
+            <div class="contact">mariopestcontrol@gmail.com</div>
+            <div class="contact">mariopestcontrol.com</div>
+            <div clas="contact">123 Mushroom ln, Mushroom Kingdom</div>
+        </footer>
+        <script src="app.js"></script>
+    </body>
+</html>

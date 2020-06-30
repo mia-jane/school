@@ -1,0 +1,32 @@
+body {
+    text-align: center;
+}
+img {
+    width: 70px;
+    height: auto;
+}
+#cheep {
+    width: 50px;
+    height: auto;
+    position:relative;
+    left: 15px;
+}
+ul {
+    list-style-type: none;
+}
+.price {
+    position:relative;
+    bottom: 25px;
+}
+#cheep-span {
+    position:relative;
+    bottom: 15px;
+    left: 25px;
+}
+input {
+    margin: 10px;
+}
+#total-cost {
+    margin: 40px;
+}
+
