@@ -60,5 +60,6 @@ const inElements = users.map(function(user){
     const test2 = ageElement.textContent = user.age
     document.body.append(ageElement)
     console.log(nameElement)
+    return nameElement + ageElement
 })
 console.log(inElements)
