@@ -1,0 +1,79 @@
+body{
+    text-align: center;
+    background-color: cornflowerblue;
+}
+#grid-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 100px;
+}
+#box1{
+    height: 150px;
+    width: 150px;
+    background-color: darkblue;
+    transition: background-color 1s linear 1s, width 1s linear 500ms, height 1s linear 500ms;
+    /* transition-duration: 500ms;
+    transition-timing-function: linear;
+    transition-delay: 200ms; */
+}
+#box1:hover{
+    background-color: floralwhite;
+    width: 200px;
+    height: 200px;
+}
+
+#box2{
+    height: 150px;
+    width: 150px;
+    background-color:darkblue;
+    transition:border-radius 600ms linear, opacity 500ms linear;
+}
+#box2:hover{
+    border-radius: 25px;
+    opacity: 0.5;
+}
+
+#box3{
+    height: 150px;
+    width: 150px;
+    background-color:darkblue;
+    transition:box-shadow 1s, height 1s, width 1s;
+}
+#box3:hover{
+    box-shadow: 10px 10px;
+    height: 200px;
+    width: 200px;
+}
+
+#box4{
+    height: 150px;
+    width: 150px;
+    background-color:darkblue;
+    transition: margin 700ms linear 300ms, box-shadow 700ms linear 300ms;
+}
+#box4:hover{
+    margin: 29px;
+    box-shadow: -10px -10px orange;
+}
+
+#box5{
+    height: 150px;
+    width: 150px;
+    background-color:darkblue;
+    transition: border-radius 1s, box-shadow 1s, opacity 1s;
+}
+#box5:hover{
+    border-radius: 15px 50px 30px;
+    box-shadow: 10px 10px;
+    opacity: 0.6;
+}
+#box6{
+    height: 150px;
+    width: 150px;
+    background-color: darkblue;
+    transition: border 1s,border-radius 1s;
+}
+#box6:hover{
+    border: 5px solid orange;
+    border-radius: 100px;
+}
