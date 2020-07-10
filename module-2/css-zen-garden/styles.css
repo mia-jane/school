@@ -1,0 +1,226 @@
+body{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-rows: repeat(auto-fit, minmax(300px,1fr)); */
+    height:100%;
+    margin:0;
+    padding:0;
+}
+h1{
+    font-family: Andale Mono, monospace;
+}
+h2{
+    font-family: Andale Mono, monospace;
+}
+h3{
+    font-family: Palatino, URW Palladio L, serif;
+    font-size: 30px;
+}
+p{
+    font-family: Optima, sans-serif;
+    font-size: large;
+}
+header{
+    background-image:url(http://www.csszengarden.com/214/huntington.jpg);
+    background-size: cover; 
+    grid-column: 1/4;
+    grid-row: 1/3;
+    height: 200px;
+}
+#box1{
+    text-align: center;
+    color: rgb(255,255,255,0.5);
+    grid-column:1/4;
+    grid-row: 1/3;
+    padding-top: 40px;
+}
+#box1 > h1{
+    color:white;
+}
+.image{
+    content: url(http://www.csszengarden.com/214/enso.svg);
+    height: 200px;
+    width: 200px;
+    top: 2px;
+    position: absolute;
+    left: 90px;
+    opacity: 0.3;
+}
+#box2{
+    grid-column: 1/4;
+    grid-row: 2/3;
+    color: rgb(255,255,255,0.5);
+    font-size: 10px;
+    padding-top: 50px;
+}
+#view-designs{
+    background-color: rgb(248,248,255,0.4);
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+#box3{
+    grid-column:1/4;
+    grid-row: 3/4;
+    padding: 50px;
+
+}
+#box4{
+    grid-column:1/4;
+    grid-row:4/5;
+    background-color: rgb(103, 122, 70,0.3);
+    background-image:url(http://www.csszengarden.com/214/bamboo.png);
+    padding: 50px;
+}
+#box5{
+    grid-column: 1/4;
+    grid-row: 5/6;
+    padding: 50px;
+}
+#box6{
+    grid-column: 1/4;
+    grid-row: 6/7;
+    background-image: url(http://www.csszengarden.com/214/koi.jpg);
+    /* color: rgb(255,255,255,0.5); */
+    height: 150px;
+    text-align: center;
+    /* padding: 40px; */
+    background-color:rgb(144,238,144,0.5);
+    color:rgb(255,255,255,0.4);
+    padding:25px;
+}
+#box7{
+    grid-column: 1/4;
+    grid-row: 7/8;
+    background-color: rgb(46,139,87);
+    display: flex;
+    justify-content: space-evenly;
+    height: 100px;
+}
+#box7 > .logos{
+    width: 50px;
+    height: 50px;
+    padding-top: 25px;
+}
+#github{
+    content: url(https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)
+}
+#creative-commons{
+    content:url(data:image/png;base64,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)
+}
+#wheelchair{
+    content:url(https://cdn.iconscout.com/icon/free/png-256/accessible-1779377-1512653.png)
+}
+#box8{
+    grid-column: 1/4;
+    grid-row: 8/9;
+    background-color:rgb(103, 122, 70,0.01);
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);
+    text-align: center;
+}
+#1{
+    grid-column: 1/2;
+    grid-row:1/2;
+}
+#2{
+    grid-column: 2/3;
+    grid-row:1/2;
+}
+#3{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+#4{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+#5{
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+#6{
+    grid-column: 2/3;
+    grid-row: 3/4;
+    /* background-color: rgb(103, 122, 70,0.1); */
+}
+#box9{
+    grid-column:1/4;
+    grid-row: 9/10;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:1fr, 1fr;
+    background-color: rgb(103, 122, 70,0.5);
+    text-align: center;
+    padding: 50px;
+}
+
+@media (min-width:900px){
+    
+    body{
+        grid-template-rows: repeat(auto-fit,minmax(200px,1fr));
+    }
+    #box1{
+        grid-column: 1/3;
+    }
+    #box2{
+        grid-column: 3/4;
+        grid-row: 1/3;
+        padding-left: 85px;
+        padding-top: 50px;
+        background-color: rgb(103, 122, 70,0.2);
+    }
+    #view-designs{
+        background-color: rgb(248,248,255,0.4);
+        width: 200px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+    }
+    #box3{
+        grid-column: 1/3;
+        grid-row: 2/3;
+    }
+    #box4{
+        grid-column: 1/3;
+        grid-row: 3/4;
+        background-image:url(http://www.csszengarden.com/214/bamboo.png);
+    }
+    #box9{
+        grid-column: 3/4;
+        grid-row: 3/4;
+        background-image:url(http://www.csszengarden.com/214/bamboo.png);
+        background-color: rgb(103, 122, 70,0.1);
+        display: flex;
+        flex-direction: column;
+        text-align:center;
+        justify-content: space-evenly;
+    }
+    #box5{
+        grid-column: 1/3;
+        grid-row: 4/5;
+    }
+    #box10{
+        grid-column: 3/4;
+        grid-row: 4/5;
+        background-color: rgb(103, 122, 70,0.1);
+    }
+    #box8{
+        grid-column: 3/4;
+        grid-row: 2/3;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    #box6{
+        grid-column: 1/4;
+        grid-row: 5/6;
+        background-color: rgb(103, 122, 70,0.1);
+    }
+    #box7{
+        grid-column:1/4;
+        grid-row: 6/7;
+        height:100px;
+    }
+}
