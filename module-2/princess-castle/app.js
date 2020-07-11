@@ -6,7 +6,7 @@ class Player{
         this.status = status
         this.hasStar = hasStar
     } 
-    pickName(){
+    setName(){
         const readlineSync = require('readline-sync')
             const playerName = ["Mario", "Luigi"]
             let index = readlineSync.keyInSelect(playerName, "which player?")
@@ -15,10 +15,21 @@ class Player{
             }else{
                 this.name = "Luigi"
             }
+    }
+    gotHit(){
+        if(this.status === "Powered Up"){
+            this.status = "Big"
+        }else if(this.status === "Big"){
+            this.status = "Small"
+        }else{
+            this.status = "Dead"
+        }
     }  
 }
 
 
-const character = new Player("someone", 10, "alive", false)
-character.pickName()
+const character = new Player("someone", 10, "Small", false)
+character.setName()
+character.gotHit()
 console.log(character)
+
