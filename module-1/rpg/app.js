@@ -117,4 +117,3 @@ while (isAlive === true){
         console.log(inventory)
     }
 }
-//test git push

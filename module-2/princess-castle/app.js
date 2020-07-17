@@ -1,10 +1,11 @@
 
 class Player{
-    constructor(name, totalCoins, status, hasStar){
+    constructor(name, totalCoins, status, hasStar, gameActive = true){
         this.name = name
         this.totalCoins = totalCoins
         this.status = status
         this.hasStar = hasStar
+        this.gameActive = gameActive
     } 
     setName(){
         const readlineSync = require('readline-sync')
@@ -23,7 +24,7 @@ class Player{
             this.status = "Small"
         }else{
             this.status = "Dead"
-            gameActive = false
+            this.gameActive = false
         }
     }
     gotPowerup(){
@@ -41,45 +42,9 @@ class Player{
     }  
 }
 
+const character = new Player(" ", 0, "Big", false)
 
 
-const character = new Player(" ", 0, "Small", false)
-// character.setName()
-// character.gotHit()
-// character.addCoin()
-// console.log(character)
-
-
-
-//put the random range function inside a setInterval function that ends after gameActive === false
-
-//THIS WORKS!!!
-// const getRandomInt = (min,max) => {
-//     min = Math.ceil(min)
-//     max = Math.floor(max)
-//     return Math.floor(Math.random() * (max-min +1)) + min
-// }
-// const randomNumber = getRandomInt(0,2)
-// if(randomNumber === 0){
-//     character.gotHit()
-//     console.log(character)
-// }else if(randomNumber === 1){
-//     character.gotPowerup()
-//     console.log(character)
-// }else if(randomNumber === 2){
-//     character.addCoin()
-//     console.log(character)
-// }
-
-
-
-var gameActive = true
-if(character.status === "Dead"){
-    gameActive = false
-}
-
-
-//increment timer
 var incrementTimer = () => {
     //if(gameActive === "true"){
         const getRandomInt = (min,max) => {
@@ -102,19 +67,21 @@ var incrementTimer = () => {
         //gameActive = false
     //}
 }
-function runGameFunction(){
-    if(gameActive === true){
-        intervalId = setInterval(incrementTimer, 1000)
-    }else if(gameActive ===false){
-        clearInterval(intervalId)
-    }
-}
-
-// character.setName()
-// console.log(character)
-// if(gameActive === true){
-//     runGameFunction()
+// function runGameFunction(){
+//     if(character.gameActive === true){
+//         intervalId = setInterval(incrementTimer, 1000)
+//     }else if(character.gameActive === false){
+//         clearInterval(intervalId)
+//     }
 // }
+
+const interval = setInterval(() => {
+    incrementTimer()
+    if( character.gameActive === false){
+        clearInterval(interval)
+    }
+}, 1000)
+
+
+
 character.setName()
-console.log(character)
-runGameFunction()
