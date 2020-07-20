@@ -1,0 +1,60 @@
+{
+   "menu" : [
+       {
+           "appetizers" : [{
+               "name" : "chips",
+               "ingredients" : ["potato", "salt"],
+               "description" : "crunchy and salty potato chips"
+           }, {
+               "name" : "mozzarella sticks",
+               "ingredients" : ["cheese, bread"],
+               "description" : "cheesey"
+           }
+            ]
+       },
+       {
+           "cold sandwiches" : [{
+               "name" : "egg salad sandwich",
+               "ingredients" : ["egg", "mayonnaise", "watercress"],
+               "description" : "fresh egg sandwich"
+           }, {
+               "name" : "tuna sandwich",
+               "ingredients" : ["tuna", "mayonnaise", "bread"],
+               "description" : "safely caught tuna"
+           }]
+       },
+       {
+           "hot sandwiches" : [{
+               "name" : "cuban sandwich",
+               "ingredients" : ["ham", "pickles", "mayo", "mustard"],
+               "description" : "hot pressed cuban"
+           }, {
+               "name" : "caprese sandwich",
+               "ingredients" : ["mozzarella cheese", "tomato", "basil"],
+               "description" : "delicious caprese sandwich"
+           }]
+       },
+       {
+           "desserts" : [{
+               "name" : " strawberry ice cream",
+               "ingredients" : ["strawberries", "cream", "sugar"],
+               "description" : "ice cream with chocolate drizzle"
+           }, {
+               "name" : "cake",
+               "ingredients" : ["milk", "eggs", "sugar"],
+               "description" : "special cake each day"
+           }]
+       },
+       {
+           "drinks" : [{
+                "name" : "water",
+                "ingredients" : ["ice", "water"],
+                "description" : "icelandic glacier water"
+           }, {
+               "name" : "watermelon juice",
+               "ingredients" : ["watermelon", "mint", "ice" ],
+               "description" : "minty sweet watermelon juice"
+           }]
+       }
+   ]
+}
