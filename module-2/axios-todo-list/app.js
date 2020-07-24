@@ -1,4 +1,5 @@
 
+//displays the whole list of todos
 function getData(){
     axios.get("https://api.vschool.io/miastroud/todo")
         .then(response => createTodo(response.data))
@@ -6,6 +7,7 @@ function getData(){
 }
 
 
+//This displays all the todos as html elements with button and checkbox
 const createTodo = (data) => {
     clearList()
     for(let i=0; i < data.length; i++){
@@ -24,15 +26,35 @@ const createTodo = (data) => {
         //addButtons
         const checkbox = document.createElement("input")
         checkbox.type = "checkbox"
-        checkbox.name = "completed"
         checkbox.value = "completed"
+        checkbox.name = "completed"
         document.getElementById("todo-list").appendChild(checkbox)
         const deleteButton = document.createElement("button")
         deleteButton.textContent = "X"
         document.getElementById("todo-list").appendChild(deleteButton)
+        
+        // //put for the checkbox
+        checkbox.addEventListener("change", function(){
+            const completedUpdate = {
+                completed: !data[i].completed
+            }
+            axios.put(`https://api.vschool.io/miastroud/todo/${data[i]._id}`, completedUpdate)
+                .then(response => {
+                    getData()
+                })
+                .catch(error => console.log(error))
+        })
+        
+        //delete button to delete
+        deleteButton.addEventListener("click", function(){
+            axios.delete(`https://api.vschool.io/miastroud/todo/${data[i]._id}`)
+                .then(response => getData())
+                .catch(error => console.log(error))
+        })
     }
 }
 
+//function to allow the item entered to the end without all the other todo's repeating themselves
 function clearList(){
     const listDiv = document.getElementById("todo-list")
     //while there is a first child in the div, remove the first child:
@@ -43,8 +65,9 @@ function clearList(){
 
 getData()
 
-const todoForm = document["todo-form"]
 
+const todoForm = document["todo-form"]
+//This adds a new todo to the list on form submit
 todoForm.addEventListener("submit", function(e){
     e.preventDefault()
     const newTodo = {
@@ -61,19 +84,5 @@ todoForm.addEventListener("submit", function(e){
         .catch(error => console.log(error))
 })
 
-// const crossOut = (data) => {
-//     for(i = 0; i < data.length; i++){
-//         if (todoForm.elements["completed".checked]){
-//             axios.put(`https://api.vschool.io/miastroud/todo/ `)
-//         }
-//     }
-// }
 
-// if(todoForm.elements["completed"].checked){
-//     const crossedOff = {
-//         completed: true
-//     }
-//     axios.put(`https://api.vschool.io/miastroud/todo/${sessionId}`, crossedOff)
-//         .then(response => getData())
-//         .catch(error => console.log(error))
-// }
+
