@@ -3,8 +3,8 @@ import React from "react"
 const Pet = (props) => {
     return (
         <div className="pet">
-            <span>{props.name}</span>
-            <span>{props.breed}</span>
+            <span>name: {props.name}</span>
+            <span>breed: {props.breed}</span>
         </div>
     )
 }

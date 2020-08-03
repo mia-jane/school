@@ -2,11 +2,13 @@ import React from 'react';
 import './App.css';
 import friends from "./FriendList"
 import Friend from "./Friend"
-//import Pet from "./Pet"
+import Pet from "./Pet"
+
+
 
 function App() {
   const friendComponents = friends.map(friend => {
-    return <Friend key={friend.name} name={friend.name} age={friend.age} />
+    return <Friend key={friend.name} name={friend.name} age={friend.age} pets={friend.pets.map(pet => <Pet name={pet.name} breed={pet.breed} />)} />
   })
   return (
     <div className="App">

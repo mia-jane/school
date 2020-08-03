@@ -26,7 +26,7 @@ const createTodo = (data) => {
         //addButtons
         const checkbox = document.createElement("input")
         checkbox.type = "checkbox"
-        checkbox.value = "completed"
+        checkbox.checked = data[i].completed
         checkbox.name = "completed"
         document.getElementById("todo-list").appendChild(checkbox)
         const deleteButton = document.createElement("button")
