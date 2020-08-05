@@ -1,10 +1,14 @@
 import React from "react"
+import Navbar from "./Navbar"
 
 const Header = () => {
     return (
         <header>
-            <h1>Clean Blog</h1>
-            <h4>A Blog Theme by Start Bootstrap</h4>
+            <Navbar />
+            <div className="main-header">
+                <h1>Clean Blog</h1>
+                <p>A Blog Theme by Start Bootstrap</p>
+            </div>
         </header>
     )
 }

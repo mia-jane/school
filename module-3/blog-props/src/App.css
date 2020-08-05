@@ -1,4 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,800;1,300&display=swap'); */
+
+
 .App {
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+nav {
+  font-weight: 800;
+  position: absolute;
+  background-color: white;
+  width: 100vw;
+  height: 48px;
+  display: flex;
+  /* justify-content: center; */
+  flex: 2;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  /* align-items: center; */
+  padding-top: 15px;
+}
+
+#start-bootstrap {
+  font-size: 1.3em;
+  position: absolute; left:0px;
+  padding-left: 60px;
+}
+
+#start-bootstrap:hover {
+    cursor: pointer;
+}
+
+#menu-button {
+  position: absolute; right:0px;
+  margin-right: 60px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid gainsboro;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    /* min-width: 160px; */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content span {
+  color: grey;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 13px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* .dropdown {
+  position: relative;
+} */
+
+.full-menu {
+  display: none;
+}
+
+.main-header {
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url("https://coursework.vschool.io/content/images/size/w2000/2017/12/home-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 380px;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
+.main-header > h1 {
+  font-size: 3.0em;
+  margin: 0px;
+  font-weight: 800;
+}
+.main-header > p{
+  margin: 0px;
+  font-size: 22px;
+  font-weight: 300px;
+}
+
+.postsContainer{
+  padding: 50px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post{
+  text-align: left;
+  width: 450px;
+  padding-top: 15px;
+}
+
+.title-subtitle > h3{
+  font-weight:800;
+  font-size: 30px;
+  margin: 10px 0px 0px 0px;
+}
+
+.subtitle {
+  font-weight: 300px;
+  font-size: 24px;
+  margin: 0px;
+  padding: 5px 0px 3px;
+}
+
+.title-subtitle {
+  transition: color 300ms;
+}
+
+.title-subtitle:hover {
+  color: teal;
+  cursor: pointer;
+}
+
+.posted-by{
+  font-weight: 400;
+  font-style: italic;
+  color: gray;
+  margin-top: 5px;
+  padding-bottom: 10px;
+}
+
+.old-post-button-container {
+  width: 450px;
+  position: relative;
+}
+
+#older-posts-button {
+  background-color: #0085a1;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 15px;
+  position: absolute; right:0px;
+  border: 0px;
+  margin: 15px 0px 15px;
+  transition: background-color 300ms;
+}
+
+#older-posts-button:hover {
+  background-color: darkslategray;
+  cursor: pointer;
+}
+
+hr {
+  border: 1px solid whitesmoke;
+}
+
+/* 770 */
+
+@media (min-width:770px){
+
+  .main-header {
+    height: 540px;
+  }
+
+  .main-header > h1 {
+    font-size: 5.0em;
+  }
+
+  .post {
+    width: 600px;
+  }
+
+  .title-subtitle > h3 {
+    font-size: 35px;
+  }
+
+  .old-post-button-container {
+    width: 600px;
+  }
+}
+
+@media (min-width: 1000px) {
+    nav {
+      background-color: transparent;
+      color: white;
+    }
+
+    #menu-button {
+      display:none;
+    }
+
+    .full-menu {
+      display: flex;
+      width: 450px;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      padding: 10px 40px;
+    }
+
+    .full-menu > span{
+      font-size: 12px;
+    }
+
+    .post {
+      width: 700px;
+    }
+    .old-post-button-container {
+      width: 600px;
+    }
 }
 
