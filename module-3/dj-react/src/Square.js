@@ -1,12 +1,9 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
-class Square extends PureComponent{
-    render(){
-        return(
-            <div className="square" style={this.props.style}></div>
-        )
-    }
-
+const Square = (props) => {
+    return(
+        <div className="square" style={{backgroundColor: props.color}}></div>
+    )
 }
 
 export default Square

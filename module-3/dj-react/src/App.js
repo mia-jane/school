@@ -1,55 +1,81 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import './App.css';
 import Square from "./Square"
-import Button from "./Button"
 
-class App extends PureComponent {
+class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      colors: ["white", "black", "purple", "blue"]
+      colors: ["white", "black", "black", "black"]
     }
-    this.handleClick = this.handleClick.bind(this)
+    this.smalltime = this.smalltime.bind(this)
+    this.party = this.party.bind(this)
+    this.profeshRight = this.profeshRight.bind(this)
+    this.profeshLeft = this.profeshLeft.bind(this)
   }
 
-  handleClick(){
-    if(this.state.colors[0]){
-      
-    }
-    // let color = this.state.colors[0]
-    // switch (color){
-    //   case this.state.colors[0]:
-    //     this.setState(prevState => {
-    //       colors: prevState
-    //     })
-    //     break
-    //   case this.state.colors[1]:
-    //     this.setState(prevState => {})
-    //     break
-    //   case this.state.colors[2]:
-    //     this.setState(prevState => {})
-    //     break
-    //   case this.state.colors[3]:
-    //     this.setState(prevState => {})
-    //     break
-    //   default: console.log("I don't know")
-    // }
+  smalltime() {
+    this.setState(prevState => {
+      if(prevState.colors[0] !== "white"){
+        return {
+          colors: ["white", "white", "white", "white"]
+        }
+      }else if(prevState.colors[0] === "white"){
+        return {
+          colors: ["black", "black", "black", "black"]
+        }
+      }
+    })
+    // this.setState(({colors}) => ({colors: colors.map(color => color === "white" ? "black" : "white")}))
   }
 
+  party() {
+    this.setState(prevState => {
+      const purpleTop = ["purple","purple"]
+      const sameBottom = prevState.colors.slice(2,4)
+      return {
+        colors: purpleTop.concat(sameBottom)
+      }
+    })
+    // this.setState({colors: ["purple", "purple", "white", "white"]})
+  }
+
+  profeshRight = () => {
+    this.setState(prevState => {
+      const rightBlue = ["blue"]
+      const firstHalf = prevState.colors.slice(0,2)
+      const last = prevState.colors.slice(3,4)
+      // const withBlue = [...firstHalf, leftBlue, last]
+      return {
+        colors: [...firstHalf, last, rightBlue]
+      }
+    })
+    // this.setState({colors: ["white", "white", "blue", "white"]})
+  }
+
+  profeshLeft = () => {
+    this.setState(prevState => {
+      const blue = ["blue"]
+      const beginning = prevState.colors.slice(0,3)
+      return {
+        colors: beginning.concat(blue)
+      }
+    })
+    // this.setState({colors: ["white", "white", "white", "blue"]})
+  }
   render(){
     console.log(this.state.colors)
+    const squareComponents = this.state.colors.map(color => <Square color={color} />)
     return (
       <div className="App">
           <h1>DJ React</h1>
           <div className="squares-container">
-            <Square style={{backgroundColor:this.state.colors[0]}} />
-            <Square style={{backgroundColor:this.state.colors[1]}} />
-            <Square style={{backgroundColor:this.state.colors[2]}} />
-            <Square style={{backgroundColor:this.state.colors[3]}} />
+            {squareComponents}
           </div>
-          <div className="buttons-container">
-            <Button onClick={this.handleClick} />
-          </div>
+          <button onClick={this.smalltime}>Small Time</button>
+          <button onClick={this.party}>partyyy</button>
+          <button onClick={this.profeshLeft}>blue left</button>
+          <button onClick={this.profeshRight}>blue right</button>
         </div>
     )
   }
