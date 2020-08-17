@@ -2,8 +2,6 @@ import React from 'react';
 import './App.css';
 import Badge from "./Badge"
 
-//components needed: form, input(x6), textarea, submit button, complete badge
-//values of state needed: firstName, lastName, email, phone, place of birth, fave food, array of badges
 
 class App extends React.Component {
   constructor(){
@@ -16,80 +14,139 @@ class App extends React.Component {
       birthPlace: "",
       faveFood: "",
       blurb: "",
-      // badges: []
+      // inputs: {
+      //   firstName: "",
+      //   lastName: "",
+      //   email: "",
+      //   phone: "",
+      //   birthPlace: "",
+      //   faveFood: "",
+      //   blurb: "",
+      // },
+      badges: []
     }
-    this.fillBadge = this.fillBadge.bind(this)
+  
   }
-  //idea: map array of badges to display badge after filling out
 
-  fillBadge(event){
-    event.preventDefault()
+  handleChange = (event) =>{
     const {name, value}= event.target
-    this.setState({
-      [name]: value
-    })
+    this.setState({[name]:value})
+    // this.setState(prevState => {
+    //   return {
+    //     inputs: {
+    //         ...prevState.inputs,
+    //         [name]: value
+    //     }
+    //   }
+    // })
+  }
+  
+//  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    event.target.reset()
+    if(this.state.firstName.length < 3 || this.state.lastName.length < 3 || this.state.email.length < 3 || this.state.birthPlace.length < 3 || this.state.faveFood.length < 3 || this.state.blurb.length < 3){
+      alert("Fill in every field")
+    }else {
+      if(!Number(this.state.phone) || this.state.phone.length !== 10){
+        alert("only numbers or not correct length")
+      }else{
+        this.setState(prevState => {
+          return{
+            badges: [...prevState.badges, newBadge]
+            // badges: [...prevState.badges, prevState.inputs]
+          }
+        })
+      }
+    }
+    let {firstName, lastName, email, phone, birthPlace, faveFood, blurb} = this.state
+    let newBadge = {
+      firstName,
+      lastName, 
+      email, 
+      phone, 
+      birthPlace, 
+      faveFood, 
+      blurb
+    }
+    // this.setState(prevState => {
+    //   return{
+    //     badges: [...prevState.badges, newBadge]
+        // badges: [...prevState.badges, prevState.inputs],
+      // }
+    // })
   }
 
   //write methods here
 
   render() {
+    const mappedBadges = this.state.badges.map(badge => <Badge firstName= {badge.firstName} 
+                                                              lastName={badge.lastName}
+                                                              phone={badge.phone}
+                                                              birthPlace={badge.birthPlace}
+                                                              email={badge.email}
+                                                              faveFood={badge.faveFood}
+                                                              blurb={badge.blurb}
+                                                              />)
     return (
       <div className="App">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="input-boxes">
             <input 
               type="text" 
               name="firstName" 
               value={this.state.firstName} 
-              placeholder="First Name" 
-              onChange={this.fillBadge} />
+              placeholder="First Name"
+              // minLength="3" 
+              onChange={this.handleChange} />
             <input 
               type="text" 
               name="lastName" 
               value={this.state.lastName} 
-              placeholder="Last Name" 
-              onChange={this.fillBadge} />
+              placeholder="Last Name"
+              // minLength="3" 
+              onChange={this.handleChange} />
             <input 
               type="text" 
               name="email" 
               value={this.state.email} 
-              placeholder="Email" 
-              onChange={this.fillBadge} />
+              placeholder="Email"
+              // minLength="3" 
+              onChange={this.handleChange} />
             <input 
               type="text"
               name="birthPlace"
               value={this.state.birthPlace}
               placeholder="Place of Birth"
-              onChange={this.fillBadge}
+              // minLength="3"
+              onChange={this.handleChange}
             />
             <input 
               type="text" 
               name="faveFood" 
               value={this.state.faveFood} 
-              placeholder="Favorite Food" 
-              onChange={this.fillBadge}/>
+              placeholder="Favorite Food"
+              // minLength="3" 
+              onChange={this.handleChange}/>
             <input 
-              type="tel" 
+              type="tel"
+              // pattern="[0-9]*" 
               name="phone" 
               value={this.state.phone} 
-              placeholder="phone" 
-              onChange={this.fillBadge}/>
+              placeholder="phone"
+              // minLength="3" 
+              onChange={this.handleChange}/>
             <textarea 
               name="blurb" 
               value={this.state.blurb} 
-              placeholder="tell us about yourself" 
-              onChange={this.fillBadge}/>
+              placeholder="tell us about yourself"
+              // minLength="3" 
+              onChange={this.handleChange}/>
           </div>
           <button>Submit</button>
         </form>
-        <Badge  
-          firstName={this.state.firstName} 
-          lastName={this.state.lastName}
-          phone={this.state.phone}
-          email={this.state.email}
-          faveFood={this.state.faveFood}
-          blurb={this.state.blurb}
-          />
+        {mappedBadges}
     </div>
     )
   }
