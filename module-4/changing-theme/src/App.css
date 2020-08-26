@@ -1,0 +1,62 @@
+.App {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 70px 200px 50px;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  grid-column: 1/4;
+  grid-row: 1/2;
+}
+
+main {
+  grid-column: 1/4;
+  grid-row: 2/3;
+}
+footer {
+  grid-column: 1/4;
+  grid-row: 3/4;
+}
+
+button {
+  padding: 10px;
+}
+
+.light-nav-theme {
+  background-color:mistyrose;
+}
+.light-main-theme {
+  background-color: mintcream;
+}
+
+.light-footer-theme {
+  background-color: lavender;
+}
+
+.light-button-theme {
+  background-color: lavenderblush;
+}
+
+.dark-nav-theme {
+  background-color: teal;
+  color: whitesmoke;
+}
+
+.dark-main-theme {
+  background-color: darkslategrey;
+  color: whitesmoke;
+}
+
+.dark-button-theme {
+  background-color: steelblue;
+  color: whitesmoke;
+}
+
+.dark-footer-theme {
+  background-color: slategrey;
+  color: whitesmoke;
+}

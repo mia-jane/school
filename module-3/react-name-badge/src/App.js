@@ -23,7 +23,8 @@ class App extends React.Component {
       //   faveFood: "",
       //   blurb: "",
       // },
-      badges: []
+      badges: [],
+      count: 0,
     }
   
   }
@@ -51,16 +52,25 @@ class App extends React.Component {
     }else {
       if(!Number(this.state.phone) || this.state.phone.length !== 10){
         alert("only numbers or not correct length")
-      }else{
-        this.setState(prevState => {
-          return{
-            badges: [...prevState.badges, newBadge]
-            // badges: [...prevState.badges, prevState.inputs]
-          }
-        })
-      }
+    }else{
+      this.setState(prevState => {
+        return{
+          badges: [...prevState.badges, newBadge],
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          birthPlace: "",
+          faveFood: "",
+          blurb: "",
+          count: prevState.count + 1
+
+          // badges: [...prevState.badges, prevState.inputs]
+        }
+      })
     }
-    let {firstName, lastName, email, phone, birthPlace, faveFood, blurb} = this.state
+    }
+    let {firstName, lastName, email, phone, birthPlace, faveFood, blurb, count} = this.state
     let newBadge = {
       firstName,
       lastName, 
@@ -68,7 +78,8 @@ class App extends React.Component {
       phone, 
       birthPlace, 
       faveFood, 
-      blurb
+      blurb,
+      count
     }
     // this.setState(prevState => {
     //   return{
@@ -88,6 +99,7 @@ class App extends React.Component {
                                                               email={badge.email}
                                                               faveFood={badge.faveFood}
                                                               blurb={badge.blurb}
+                                                              count={badge.count}
                                                               />)
     return (
       <div className="App">
