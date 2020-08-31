@@ -1,0 +1,63 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+body {
+  background-color: #f7fbfc;
+  font-family: 'Open Sans', sans-serif;
+  color: darkslategray;
+}
+.App {
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Karla', sans-serif; */
+  margin: 40px;
+}
+
+
+.header {
+  font-size: 40px;
+  /* font-family: 'Karla', sans-serif; */
+  color: #1f1f1f;
+  
+}
+
+.profile {
+  /* background-color: #b9d7ea; */
+  padding: 5px 30px 30px;
+}
+
+#projects-container {
+  padding: 5px 30px 30px;
+}
+
+.skills {
+  /* background-color: #d6e6f2; */
+  padding: 5px 30px 30px;
+}
+
+footer {
+  padding: 5px 30px 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+span {
+  display: block;
+  font-size: 25px;
+}
+
+h2 {
+  color: black;
+  font-size: 30px;
+  /* font-family: 'Karla', sans-serif; */
+}
+
+.headings {
+  font-size: 40px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 25px;
+}
+

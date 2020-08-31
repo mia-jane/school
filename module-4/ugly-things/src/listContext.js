@@ -13,12 +13,20 @@ function ListContextProvider(props) {
     function handleSubmit(event){
         event.preventDefault()
         setUglyThings(prevUglyThings => [...prevUglyThings, inputData])
+        setInputData({title: "", image:"", description: ""})
     }
 
-    console.log(inputData)
+    function handleDelete(){
+        uglyThings.splice(inputData,1)
+        setUglyThings([...uglyThings])
+    }
+
+    // function handleEdit(){
+
+    // }
 
     return (
-        <ListContext.Provider value={{inputData, uglyThings, handleChange, handleSubmit}}>
+        <ListContext.Provider value={{inputData, uglyThings, handleChange, handleSubmit, handleDelete}}>
             {props.children}
         </ListContext.Provider>
     )
