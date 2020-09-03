@@ -1,6 +1,6 @@
 // import React, {useContext} from "react"
 import React from "react"
-// import useToggle from "./useToggle"
+import useToggle from "./useToggle"
 
 
 //import {useContext}
@@ -8,8 +8,7 @@ import React from "react"
 
 
 function UglyItem(props) {
-    // const [showInput, toggle] = useToggle()
-    // const {handleDelete} = useContext(ListContext)
+    const [showInput, toggle] = useToggle()
     return (
         <>
             <li>
@@ -17,24 +16,22 @@ function UglyItem(props) {
                 <h4>{props.description}</h4>
                 <img src={props.image} alt="" />
             </li>
-            <button onClick={props.delete}>Delete</button>
-
-
-
-
+            <button onClick={() => props.delete(props.id)}>Delete</button>
 
 
             {/* Edit button */}
-            {/* <button onClick={toggle}>Edit</button> */}
-            {/* <form  onClick={handleSubmit} style={{display: showInput ? "inline" : "none"}}>
-                <input name="title" type="text" placeholder="Title" onChange={handleChange} value={inputData.title}/>
-                <input name="description" type="text" placeholder="description" onChange={handleChange} value={inputData.description} />
-                <input name="image" type="text" placeholder="img URL" onChange={handleChange} value={inputData.image} />
+            <button onClick={toggle}>Edit</button>
+            <form style={{display: showInput ? "inline" : "none"}}>
+                <input name="editTitle" type="text" placeholder="Title" />
+                <input name="editDescription" type="text" placeholder="description" />
+                <input name="editImage" type="text" placeholder="img URL" />
                 <button>Save Changes</button>
-            </form> */}
+            </form>
         </>
     )
 }
+
+
 
 export default UglyItem
 
