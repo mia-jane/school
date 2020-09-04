@@ -41,13 +41,6 @@ function ListContextProvider(props) {
         })
     }
 
-    // handleEdit = (e, _id, updatedItem) => {
-    //     e.preventDefault()
-    //     this.setState(prevState => ({
-    //         savedCards: prevState.savedCards.map(item => item._id === _id ? updatedItem : item)
-    //     }))
-    // }
-
     return (
         <ListContext.Provider value={{inputData, uglyThings, handleChange, handleSubmit, handleDelete, handleEdit}}>
             {props.children}
