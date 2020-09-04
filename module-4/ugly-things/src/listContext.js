@@ -5,6 +5,7 @@ const ListContext = React.createContext()
 function ListContextProvider(props) {
     const [inputData, setInputData] = useState({title: "", image: "", description: ""})
     const [uglyThings, setUglyThings] = useState([])
+    // const [editValue, setEditValue] = useState({title: "", image: "", description: ""})
 
     const handleChange = (event) => {
         const {name, value} = event.target
@@ -18,20 +19,28 @@ function ListContextProvider(props) {
         setInputData({title: "", image:"", description: ""})
     }
 
-    const handleDelete =(id) => {
-        // setUglyThings([...uglyThings].splice(uglyThings.findIndex(uglyThing => id === uglyThing._id),1))
-        const uglyThingId = uglyThings.findIndex(uglyThing => id === uglyThing._id)
-        console.log(uglyThingId)
-        const uglyThingsCopy = uglyThings
-        uglyThingsCopy.splice(uglyThingId, 1)
-        setUglyThings([...uglyThingsCopy])
-        console.log(uglyThings)
+    const handleDelete = (id) => {
+        setUglyThings(prev => prev.filter(uglyThing => id !== uglyThing._id))
+        // const uglyThingId = uglyThings.findIndex(uglyThing => id === uglyThing._id)
+        // const uglyThingsCopy = [...uglyThings]
+        // uglyThingsCopy.splice(uglyThingId, 1)
+        // setUglyThings(uglyThingsCopy)
     }
 
-    // const handleEdit = (e, id, updatedItem) => {
-    //     e.preventDefault()
-    //     setUglyThings(prevUglyThings.map(thing => id === thing._id ? updatedItem : inputData))
+    // const handleEditChange = (event) => {
+    //     const {name, value} = event.target
+    //         // setEditValue(prevEditValue => ({...prevEditValue, [name]: value}))
+    //         setEditValue(prevEditValue => ({...prevEditValue, [name]: value}))
+    //         console.log(editValue)
     // }
+
+    const handleEdit = (id, editValue) => {
+        setUglyThings(prevUglyThings => {
+            console.log(prevUglyThings.map(uglyThing => id === uglyThing._id ? editValue : uglyThing))
+            return prevUglyThings.map(uglyThing => id === uglyThing._id ? editValue : uglyThing)
+        })
+    }
+
     // handleEdit = (e, _id, updatedItem) => {
     //     e.preventDefault()
     //     this.setState(prevState => ({
@@ -40,7 +49,7 @@ function ListContextProvider(props) {
     // }
 
     return (
-        <ListContext.Provider value={{inputData, uglyThings, handleChange, handleSubmit, handleDelete}}>
+        <ListContext.Provider value={{inputData, uglyThings, handleChange, handleSubmit, handleDelete, handleEdit}}>
             {props.children}
         </ListContext.Provider>
     )
