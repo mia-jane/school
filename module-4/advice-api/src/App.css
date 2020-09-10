@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;700;800&display=swap');
+
+.App {
+  /* text-align: center; */
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  /* color: ghostwhite; */
+  background-color: rgb(210, 208, 254, 0.3);
+  padding: 30px;
+}
+
+.home {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.home > h1 {
+  color: #3e206d;
+  font-size: 70px;
+  font-weight: 700;
+}
+
+.links {
+  color: black;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 140%;
+}
+
+.favQuotes > h1{
+  font-size: 60px;
+  color: #3e206d;
+}
+
+.about > h1 {
+  font-size: 70px;
+}
+
+.about {
+  font-size: 40px;
+  color:#3e206d;
+  padding: 30px;
+}
+
+button {
+  padding: 10px 50px;
+  font-size: 30px;
+  background-color: #4a47a3;
+  color: #d2d0fe;
+  border: none;
+  font-weight: 600;
+}
+
+
+
+
+/* Trying fade in effect */
+
+/* .fade-in {
+  animation: fadeIn ease 10s;
+  -webkit-animation: fadeIn ease 10s;
+  -moz-animation: fadeIn ease 10s;
+  -o-animation: fadeIn ease 10s;
+  -ms-animation: fadeIn ease 10s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+} */
