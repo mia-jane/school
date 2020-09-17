@@ -5,7 +5,7 @@ const ListContext = React.createContext()
 function ListContextProvider(props) {
     const [inputData, setInputData] = useState({title: "", image: "", description: ""})
     const [uglyThings, setUglyThings] = useState([])
-    // const [editValue, setEditValue] = useState({title: "", image: "", description: ""})
+
 
     const handleChange = (event) => {
         const {name, value} = event.target
@@ -27,12 +27,6 @@ function ListContextProvider(props) {
         // setUglyThings(uglyThingsCopy)
     }
 
-    // const handleEditChange = (event) => {
-    //     const {name, value} = event.target
-    //         // setEditValue(prevEditValue => ({...prevEditValue, [name]: value}))
-    //         setEditValue(prevEditValue => ({...prevEditValue, [name]: value}))
-    //         console.log(editValue)
-    // }
 
     const handleEdit = (id, editValue) => {
         setUglyThings(prevUglyThings => {

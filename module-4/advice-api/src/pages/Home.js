@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import Heart from "react-animated-heart"
+import {LikeContext} from "./likeContext"
 
 
 function Home(props) {
+
+    const {quote, setQuote, likedQuotes, setLikedQuotes} = useContext(LikeContext)
+
     const axios = require("axios")
-    const [quote, setQuote] = useState("")
+    // const [quote, setQuote] = useState("")
     const [quotesArr, setQuotesArr] = useState("")
+    const [isClick, setClick] = useState(false)
+    // const [likedQuotes, setLikedQuotes] = useState([])
 
     useEffect(() => {
         axios.get("https://type.fit/api/quotes").then(res => {
@@ -20,36 +27,35 @@ function Home(props) {
         const randomQuote = quotesArr[randomQuoteIndex].text
         console.log(randomQuote)
         setQuote(randomQuote)
+        setClick(false)
         // console.log(quotesArr[randomQuoteIndex].text)
         
     }
 
+    const handleHeartClick = () => {
+        setClick(!isClick)
+        setLikedQuotes(prev => [...prev, quote])
+        // console.log(likedQuotes)
+    }
+
+
+
 
     return (
         <div className="home">
-            <h1>Magic 8 ball</h1>
+            <h1>Quotes</h1>
             <div>
-                <p>What advice does the magic 8 ball have for you?</p>
-                <button onClick={handleClick} type="button">Ask</button>
-                <p className="fade-in">{quote}</p>
+                <p>save your favorite quotes</p>
+                <button onClick={handleClick} type="button">get quote</button>
+                <div className="quotebox">
+                    <span className="fade-in">{quote}</span>
+                    {/* <Heart className="heart" isClick={isClick} onClick={() => setClick(!isClick)} /> */}
+                    <Heart className="heart" isClick={isClick} onClick={handleHeartClick} />
+                </div>
             </div>
-            {/* <form>
-                <input type="text" placeholder="Ask your question" />
-                <button type="submit">Ask</button>
-            </form> */}
       </div>
     );
 }
 
 export default Home;
 
-
-
-
-
-    // useEffect(() => {
-    //     axios.get("https://api.adviceslip.com/advice").then(res => {
-    //         setAdvice(res.data.slip.advice)
-    //         // console.log(res.data.slip.advice)
-    //     })
-    // })

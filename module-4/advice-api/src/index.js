@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom"
+import {LikeContextProvider} from "./pages/likeContext"
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+    <LikeContextProvider>
       <App />
+    </LikeContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
