@@ -17,7 +17,9 @@ bountyRouter.post("/", (req,res) => {
     const newBounty = req.body
     newBounty._id = uuidv4()
     bounties.push(newBounty)
-    res.send("successfully added a new bounty")
+    // res.send("successfully added a new bounty")
+    res.send(newBounty)
+    //this will be the response.data in axios
 })
 
 
@@ -29,6 +31,7 @@ bountyRouter.delete("/:bountyId", (req, res) => {
     res.send("deleted bounty")
 })
 
+//put router needs 2 things: the id and the request body (new object to update the existing obj with)
 bountyRouter.put("/:bountyId", (req,res) => {
     const bountyId = req.params.bountyId
     const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
