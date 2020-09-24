@@ -2,9 +2,6 @@ const express = require("express")
 const bountyRouter = express.Router()
 const {v4: uuidv4} = require("uuid")
 
-const bounties = [
-    {firstName: "Darth", lastName:"Vader", living: true, bountyAmount: 10000, type: "Sith", _id:uuidv4()}
-]
 
 //get works
 bountyRouter.get("/", (req,res) => {

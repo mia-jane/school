@@ -11,7 +11,7 @@ function App() {
   function getBounties(){
     axios.get("/bounties")
     .then(res => setBounties(res.data))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err.response.data.errMsg))
   }
 
     //newBounty here is a parameter
@@ -22,14 +22,14 @@ function App() {
       // .then(res => console.log(res))
       .then(res => {
         setBounties(prevBounties => [...prevBounties, res.data])})
-      .catch(err => console.log(err))
+      .catch(err => console.log(err.response.data.errMsg))
   }
 
   const deleteBounty = (bountyId) => {
     axios.delete(`/bounties/${bountyId}`)
     // .then(res => console.log(res)) this does update the database, so if refreshed page after deleting it would delete it from the database.  But need to refresh the page, it doesn't do it automatically
     .then(res => {setBounties(prevBounties => prevBounties.filter(bounty => bounty._id !== bountyId))})
-    .catch(err => console.log(err))} // filter returns a new array, so not mutating state. filters out the things we don't want in the new state.  This makes it so that it updates state automatically right away, don't need to refresh the page to get the new data without the deleted item from the database
+    .catch(err => console.log(err.response.data.errMsg))} // filter returns a new array, so not mutating state. filters out the things we don't want in the new state.  This makes it so that it updates state automatically right away, don't need to refresh the page to get the new data without the deleted item from the database
 
   //2 arguments: Id, and the updates object
   const editBounty = (updates, bountyId) => {
@@ -38,7 +38,7 @@ function App() {
       .then(res => {
         setBounties(prevBounties => prevBounties.map(bounty => bounty._id !== bountyId ? bounty : res.data))
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err.response.data.errMsg))
   }
  
 
