@@ -9,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <hr />
       <div className="grid-container">
         <Profile />
         <div id="projects-container">
@@ -23,7 +24,6 @@ function App() {
                 <h2>Project no. 3</h2>
             </div>
         </div>
-          
         <Skills />
         <Footer />
       </div>
