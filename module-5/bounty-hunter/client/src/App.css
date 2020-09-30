@@ -2,3 +2,17 @@
   text-align: center;
 }
 
+button {
+  padding: 5px;
+  margin: 10px;
+}
+
+input {
+  padding: 6px;
+}
+
+.bounty {
+  width: 700px;
+  padding: 10px;
+  border: 2px black solid;
+}

@@ -12,7 +12,6 @@ function Bounty(props) {
             { !editToggle ? 
             <>
                 <h1>{`${firstName} ${lastName}`}</h1>
-                <h3>{living}</h3>
                 <h4>reward: ${bountyAmount}</h4>
             <h4>type: {type}</h4>
                 <button className="delete-btn" 

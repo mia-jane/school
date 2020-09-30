@@ -1,5 +1,5 @@
 const express = require("express")
-const { update } = require("../models/inventory.js")
+// const { update } = require("../models/inventory.js")
 const inventoryRouter = express.Router()
 const Item = require("../models/inventory.js")
 

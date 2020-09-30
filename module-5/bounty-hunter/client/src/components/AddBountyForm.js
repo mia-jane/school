@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 const AddBountyForm = (props) => {
     // const initInputs = {firstName:"", lastName:""}
     //the below is to make this form usuable for the edit inputs:  If a props.title doesn't exist, then pass down an empty string
-    const initInputs = {firstName: props.firstName || "", lastName: props.lastName || "", living: props.living || "", bountyAmount: props.bountyAmount || "", type: props.type || ""}
+    const initInputs = {firstName: props.firstName || "", lastName: props.lastName || "", living: true, bountyAmount: props.bountyAmount || "", type: props.type || ""}
     const [inputs, setInputs] = useState(initInputs)
 
     const handleChange = (e) => {
@@ -35,13 +35,13 @@ const AddBountyForm = (props) => {
                 onChange={handleChange}
                 placeholder="last name"
             />
-            <input
+            {/* <input
                 type="text"
                 name="living"
                 value={inputs.living}
                 onChange={handleChange}
                 placeholder="Still Alive?"
-            />
+            /> */}
             <input
                 type="number"
                 name="bountyAmount"
