@@ -6,6 +6,7 @@ function Footer(props) {
             <a href="https://github.com/mia-jane" target="_blank" rel="noopener noreferrer">Github</a>
             <a href="https://www.linkedin.com/in/mia-stroud-/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <span>Resume</span>
+            <span>miast36@gmail.com</span>
         </footer>
     )
 }

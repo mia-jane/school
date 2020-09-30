@@ -38,9 +38,6 @@ function Home(props) {
         // console.log(likedQuotes)
     }
 
-
-
-
     return (
         <div className="home">
             <h1>Quotes</h1>
@@ -50,7 +47,7 @@ function Home(props) {
                 <div className="quotebox">
                     <span className="fade-in">{quote}</span>
                     {/* <Heart className="heart" isClick={isClick} onClick={() => setClick(!isClick)} /> */}
-                    <Heart className="heart" isClick={isClick} onClick={handleHeartClick} />
+                    <Heart isClick={isClick} onClick={handleHeartClick} />
                 </div>
             </div>
       </div>

@@ -47,7 +47,17 @@ body {
 
 
 #projects-container {
-  padding: 5px 50px 30px;
+  padding: 5px 80px 30px 80px;
+}
+
+.projects {
+   display: grid;
+   grid-template-columns: auto auto;
+   grid-template-rows: auto auto;
+}
+
+.projectName {
+  grid-column: 1/3;
 }
 
 .skills {
@@ -87,5 +97,9 @@ a {
   font-size: 25px;
 }
 
+img {
+  width: 300px;
+  height: auto;
+}
 
 /* @media 520px */
