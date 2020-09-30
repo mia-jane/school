@@ -12,27 +12,30 @@ body {
 .App {
   text-align: left;
   font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
   /* font-family: 'Karla', sans-serif; */
 }
 
-hr {
-  border: 2px solid  rgb(109,215,204, 0.4);
-  margin: 30px;
-}
 
 .header {
-  font-size: 40px;
-  /* font-family: 'Karla', sans-serif; */
   color: #1f1e1e;
-  /* height: 200px; */
-  /* line-height: 200px; */
-  height: 200px;
-  line-height: 100px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
 .header > h1 {
-  /* margin-top: 0; */
-  padding-left: 80px;
+  margin-top:10;
+  margin-bottom: 10px;
+  font-size: 60px;
+  font-weight: 300;
+}
+
+#subtitle {
+  font-size: 30px;
+}
+
+.header > p {
+  font-size: 22px;
 }
 
 /* .grid-container {
@@ -42,10 +45,6 @@ hr {
   flex-direction: column;
 } */
 
-.profile {
-  /* background-color: #b9d7ea; */
-  padding: 5px 50px 30px;
-}
 
 #projects-container {
   padding: 5px 50px 30px;
@@ -66,7 +65,7 @@ footer {
 }
 
 
-span {
+.skills > span {
   display: block;
   font-size: 25px;
   /* color: #7acdc6; */
@@ -75,6 +74,7 @@ span {
 h2 {
   color: #1f1e1e;
   font-size: 30px;
+  font-weight: 300;
   /* font-family: 'Karla', sans-serif; */
 }
 
