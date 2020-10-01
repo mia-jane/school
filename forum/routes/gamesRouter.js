@@ -1,10 +1,10 @@
 const express = require("express")
 const gamesRouter = express.Router()
-const Comment = require("../models/comments")
+const GameComment = require("../models/gameComments")
 
 //get all route
 gamesRouter.get("/", (req, res, next) => {
-    Comment.find((err, comments) => {
+    GameComment.find((err, comments) => {
         if(err){
             res.status(500)
             return next(err)
@@ -14,19 +14,14 @@ gamesRouter.get("/", (req, res, next) => {
 })
 
 gamesRouter.post("/", (req, res, next) => {
-    const newComment = new Comment(req.body)
-    newComment.save((err, savedComment) => {
+    const newGameComment = new GameComment(req.body)
+    newGameComment.save((err, savedComment) => {
         if(err){
             res.status(500)
             return next(err)
         }
-        return res.status(201).send(newComment)
+        return res.status(201).send(savedComment)
     })
 })
-
-// const comments = ["cat", "dog", "duck"]
-// gamesRouter.get("/", (req,res) => {
-//     res.send(comments)
-// })
 
 module.exports = gamesRouter

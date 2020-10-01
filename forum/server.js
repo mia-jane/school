@@ -19,6 +19,8 @@ mongoose.connect("mongodb://localhost:27017/forumdb",
 )
 
 app.use("/games", require("./routes/gamesRouter"))
+app.use("/movies", require("./routes/moviesRouter"))
+app.use("/music", require("./routes/musicRouter"))
 
 //global error handler
 app.use((err, req, res, next) => {
