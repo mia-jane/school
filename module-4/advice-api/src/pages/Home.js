@@ -18,6 +18,7 @@ function Home(props) {
             // console.log(res.data[0].text)
             setQuotesArr(res.data)
             // console.log(quotesArr)
+
         })
     })
 

@@ -52,7 +52,7 @@ body {
 
 .projects {
    display: grid;
-   grid-template-columns: auto auto;
+   grid-template-columns: 330px auto;
    grid-template-rows: auto auto;
 }
 
