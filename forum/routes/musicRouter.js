@@ -24,5 +24,29 @@ musicRouter.post("/", (req, res, next) => {
     })
 })
 
+musicRouter.delete("/:musicCommentId", (req, res, next) => {
+    MusicComment.findOneAndDelete({_id: req.params.musicCommentId}, (err, deletedComment) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send("deleted")
+    })
+})
+
+musicRouter.put("/:musicCommentId", (req, res, next) => {
+    MusicComment.findOneAndUpdate(
+        {_id: req.params.musicCommentId},
+        req.body,
+        {new: true},
+        (err, updatedComment) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(updatedComment)
+        }
+    )
+})
 
 module.exports = musicRouter

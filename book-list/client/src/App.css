@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap');
+
+/* https://images.unsplash.com/photo-1574357675216-a7ce77356a2a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80 */
+
+body {
+  background: url("https://images.unsplash.com/photo-1472173148041-00294f0814a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjF9&auto=format&fit=crop&w=2250&q=80") no-repeat center center fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.App {
+  text-align: center;
+  color: whitesmoke;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.lists{
+  margin: 0 auto;
+  width: 450px;
+  background-color: rgb(0, 0, 0, 0.5);
+  font-weight: 700;
+}
+
+img {
+  height: 300px;
+  width: auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+

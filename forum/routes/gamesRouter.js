@@ -24,4 +24,29 @@ gamesRouter.post("/", (req, res, next) => {
     })
 })
 
+gamesRouter.delete("/:gameCommentId", (req, res, next) => {
+    GameComment.findOneAndDelete({_id: req.params.gameCommentId}, (err, deletedComment) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(200).send("deleted")
+    })
+})
+
+gamesRouter.put("/:gameCommentId", (req, res, next) => {
+    GameComment.findOneAndUpdate(
+        {_id: req.params.gameCommentId},
+        req.body,
+        {new: true},
+        (err, updatedComment) => {
+            if(err){
+                res.status(500)
+                return next(err)
+            }
+            return res.status(201).send(updatedComment)
+        }
+    )
+})
+
 module.exports = gamesRouter
