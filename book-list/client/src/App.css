@@ -10,7 +10,7 @@ body {
 
 .App {
   text-align: center;
-  color: whitesmoke;
+  color: floralwhite;
   font-family: 'IBM Plex Mono', monospace;
 }
 
@@ -19,6 +19,7 @@ body {
   width: 450px;
   background-color: rgb(0, 0, 0, 0.5);
   font-weight: 700;
+  color: floralwhite;
 }
 
 img {
@@ -26,11 +27,64 @@ img {
   width: auto;
 }
 
-.navbar {
+nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  background-color: rgb(0, 0, 0, 0.6);
+  align-items: center;
+  height: 80px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
+.links {
+  font-weight: 700;
+  color: ghostwhite;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+form {
+  display: grid;
+  height: 300px;
+  width: 150px;
+  margin: auto;
+  padding-top: 100px;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+input {
+  height: 40px;
+  width: 160px;
+  font-size: 25px;
+  font: inherit;
+  background-color: ivory;
+  border: none;
+}
+
+select {
+  height: 40px;
+  width: 160px;
+  font: inherit;
+  font-weight: 300;
+  font-size: 20px;
+  background-color: ivory;
+  border: none;
+}
+
+button {
+  height: 50px;
+  width: 160px;
+  font: inherit;
+  font-weight: 700;
+  font-size: 20px;
+  background-color: black;
+  color: whitesmoke;
+  border: none;
+}
 
 
 

@@ -19,8 +19,6 @@ function App() {
         <Route path="/about" component={About}></Route>
         <Route path="/favequotes" component={FaveQuotes}></Route>
       </Switch>
-      
-
     </div>
   );
 }
