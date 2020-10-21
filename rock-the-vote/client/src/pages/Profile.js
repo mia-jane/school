@@ -1,12 +1,14 @@
-import React from 'react';
-import Post from "../components/Post"
+import React, {useContext} from 'react';
+import PostList from "../components/PostList"
+import { UserContext } from "../context/UserProvider"
 
 function Profile(props) {
+    const {user: { username }, posts} = useContext(UserContext)   //give us the user's username. nested object inside of a destructure object
     return (
         <div>
-            <h1>Username here</h1>
+            <h1>{username}</h1>
             <h2>Your posts</h2>
-            <Post />
+            <PostList posts={posts} />
         </div>
     );
 }

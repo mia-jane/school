@@ -4,7 +4,7 @@ import {UserContext} from "../context/UserProvider"
 
 
 function Auth() {
-    const initInputs= {usename:"", password:""}
+    const initInputs= {username:"", password:""}
     const [inputs, setInputs] = useState(initInputs)
     const [toggle, setToggle] = useState(false)
 

@@ -1,10 +1,11 @@
 import React from 'react';
 
 function Post(props) {
+    const {title, description, _id } = props
     return (
-        <div>
-            <p>Post name here</p>
-            <p>posted by username</p>
+        <div className="post">
+            <p>{title}</p>
+            <p>{description}</p>
         </div>
     );
 }
