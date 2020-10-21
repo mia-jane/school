@@ -2,8 +2,8 @@ const express = require("express")
 const bookRouter = express.Router()
 const Book = require("../models/book")
 
-bookRouter.get("/", (req, res, next) => {
-    Book.find((err, books) => {
+bookRouter.get("/user", (req, res, next) => {
+    Book.find({user: req.user._id}, (err, books) => {
         if(err){
             res.status(500)
             return next(err)
@@ -13,6 +13,7 @@ bookRouter.get("/", (req, res, next) => {
 })
 
 bookRouter.post("/", (req, res, next) => {
+    req.body.user = req.user._id
     const newBook = new Book(req.body)
     newBook.save((err, savedBook) => {
         if(err){
@@ -23,9 +24,9 @@ bookRouter.post("/", (req, res, next) => {
     })
 })
 
-bookRouter.put("/", (res, req, next ) => {
+bookRouter.put("/:bookId", (req, res, next ) => {
     Book.findOneAndUpdate(
-        {_id: req.params.bookId },
+        {_id: req.params.bookId, user: req.user._id },
         req.body,
         {new: true},
         (err, updatedBook) => {
@@ -38,8 +39,8 @@ bookRouter.put("/", (res, req, next ) => {
     )
 })
 
-bookRouter.delete("/", (req, res, next) => {
-    Book.findOneAndDelete({_id: req.params.bookId}, (err, deletedBook) => {
+bookRouter.delete("/:bookId", (req, res, next) => {
+    Book.findOneAndDelete({_id: req.params.bookId, user: req.user._id}, (err, deletedBook) => {
         if(err){
             res.status(500)
             return next(err)

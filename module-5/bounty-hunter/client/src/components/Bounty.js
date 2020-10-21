@@ -13,7 +13,7 @@ function Bounty(props) {
             <>
                 <h1>{`${firstName} ${lastName}`}</h1>
                 <h4>reward: ${bountyAmount}</h4>
-            <h4>type: {type}</h4>
+                <h4>type: {type}</h4>
                 <button className="delete-btn" 
                         onClick={() => props.deleteBounty(_id)}>Delete</button>
                 <button 

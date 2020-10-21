@@ -23,6 +23,7 @@ mongoose.connect("mongodb://localhost:27017/politicaldb",
 app.use("/auth", require("./routes/authRouter"))
 app.use("/api", expressJwt({ secret: process.env.SECRET, algorithms: ['HS256'] }))
 app.use("/api/issue", require("./routes/issueRouter"))
+app.use("/api/issue/comments", require("./routes/commentRouter"))
 
 app.use((err, req, res, next) => {
     console.log(err)
