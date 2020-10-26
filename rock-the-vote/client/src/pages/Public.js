@@ -1,16 +1,16 @@
-import React, {useContext} from 'react';
+import React, {useContext } from 'react';
 import {UserContext} from "../context/UserProvider"
 // import Post from "../components/Post"
 import PostForm from "../components/PostForm"
 import PostList from "../components/PostList"
 
 function Public(props) {
-    const {user: {username}, addPost, posts} = useContext(UserContext)
+    const { addPost, issues } = useContext(UserContext)
     return (
         <div>
             <h1>Public page</h1>
             <PostForm addPost={addPost} />
-            <PostList posts={posts}/>
+            <PostList posts={issues}/>
         </div>
     );
 }

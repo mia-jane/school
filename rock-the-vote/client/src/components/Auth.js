@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react'
 import AuthForm from "./AuthForm"
 import {UserContext} from "../context/UserProvider"
+import "../css/auth.css"
 
 
 function Auth() {
@@ -8,7 +9,7 @@ function Auth() {
     const [inputs, setInputs] = useState(initInputs)
     const [toggle, setToggle] = useState(false)
 
-    const {signup, login} = useContext(UserContext)
+    const {signup, login, errMsg, resetAuthErr} = useContext(UserContext)
 
     const handleChange = (e) =>{
         const {name, value} = e.target
@@ -25,7 +26,13 @@ function Auth() {
         login(inputs)
     }
 
+    function toggleForm(){
+        setToggle(prev => !prev)
+        resetAuthErr()
+    }
+
     return (
+        <body className="auth">
         <div className="auth-container">
             <h1>Rock the Vote</h1>
             { !toggle ?
@@ -34,9 +41,10 @@ function Auth() {
                         handleChange={handleChange}
                         handleSubmit={handleSignup}
                         inputs={inputs}
+                        errMsg={errMsg}
                         btnText="Sign up" 
                     />
-                    <p onClick={()=> setToggle(prev => !prev)}>Already a member?</p>
+                    <p onClick={toggleForm}>Already a member?</p>
                 </>
                 :
                 <>
@@ -44,11 +52,14 @@ function Auth() {
                         handleChange={handleChange}
                         handleSubmit={handleLogin}
                         inputs={inputs}
-                        btnText="Login" />
-                    <p onClick={() => setToggle(prev => !prev)}>Not a member?</p>
+                        errMsg={errMsg}
+                        btnText="Login" 
+                    />
+                    <p onClick={toggleForm}>Not a member?</p>
                 </>
             }
         </div>
+        </body>
     );
 }
 

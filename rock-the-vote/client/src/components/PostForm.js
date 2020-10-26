@@ -26,12 +26,16 @@ function PostForm(props) {
         <div>
             <form onSubmit={handleSubmit}>
                 <input 
+                    className="post-input"
+                    id="title-input"
                     type="text" 
                     name="title"
                     value={inputs.title} 
                     placeholder="title"
                     onChange={handleChange} />
                 <textarea 
+                    className="post-input"
+                    id="description-input"
                     name="description" 
                     value={inputs.description}
                     placeholder="description"
