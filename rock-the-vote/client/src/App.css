@@ -8,12 +8,14 @@
 
 .navbar {
   display: flex;
-  background-color: rgb(103,142,140, 0.3);
+  background-color: lavender;
   justify-content: space-around;
   align-items: center;
-  height: 90px;
-  /* font-family: 'Syne Mono', monospace; */
+  height: 60px;
   font-family: 'Playfair Display', serif;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .post {

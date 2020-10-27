@@ -1,6 +1,5 @@
 import React, {useContext } from 'react';
 import {UserContext} from "../context/UserProvider"
-// import Post from "../components/Post"
 import PostForm from "../components/PostForm"
 import PostList from "../components/PostList"
 

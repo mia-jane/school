@@ -30,7 +30,7 @@ function App() {
           redirectTo="/"
           token={token} />
         <ProtectedRoute
-          path="/comments"
+          path="/comments/:issueId"
           component= {CommentPage}
           redirectTo="/"
           token={token} />

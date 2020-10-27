@@ -22,6 +22,7 @@ function UserProvider(props){
 
     const [userState, setUserState] = useState(initState)
     const [issues, setIssues] = useState([])
+    // const [comments, setComments] = useState([])
 
     const signup = (credentials) => {
         axios.post("/auth/signup", credentials)
@@ -48,6 +49,7 @@ function UserProvider(props){
             localStorage.setItem("user", JSON.stringify(user))
             getUserPosts()
             getAllPosts()
+            // getComments()
             setUserState(prevUserState => ({
                 ...prevUserState,
                 user,
@@ -110,6 +112,16 @@ function UserProvider(props){
             .catch(err => console.log(err.response.data.errMsg))
     }
 
+
+    //post a comment
+    // const addComment = (newComment) => {
+    //     userAxios.post("api/issue/comments/:issueId", newComment)
+    //     .then(res => {
+    //         setComments(prevComments => [...prevComments, res.data])
+    //     })
+    //     .catch(err => console.log(err))
+    // }
+
     return(
         <UserContext.Provider 
             value={{
@@ -119,7 +131,8 @@ function UserProvider(props){
                 logout, 
                 addPost,
                 resetAuthErr,
-                issues
+                issues,
+                userAxios
             }}>
             {props.children}
         </UserContext.Provider>

@@ -32,7 +32,6 @@ function Auth() {
     }
 
     return (
-        <body className="auth">
         <div className="auth-container">
             <h1>Rock the Vote</h1>
             { !toggle ?
@@ -59,7 +58,6 @@ function Auth() {
                 </>
             }
         </div>
-        </body>
     );
 }
 
