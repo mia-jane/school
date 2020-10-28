@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 function CommentForm(props) {
-    const [input, setInput] = useState({comment: ""})
+    const [input, setInput] = useState({comment: props.comment || ""})
 
     const handleChange = (e) => {
         const {name, value } = e.target
@@ -10,7 +10,7 @@ function CommentForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.addComment(input)
+        props.submit(input, props._id)
         setInput({comment: ""})
     }
 
@@ -22,7 +22,7 @@ function CommentForm(props) {
                 value={input.comment}
                 placeholder="add a comment"
                 onChange={handleChange} />
-            <button>send</button>
+            <button>{props.btnText}</button>
         </form>
     );
 }

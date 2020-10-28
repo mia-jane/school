@@ -1,13 +1,14 @@
 import React, {useState} from "react"
+import {authClient} from "../utils/api"
 import axios from "axios"
 
 const UserContext = React.createContext()
-const userAxios = axios.create()  //replica of axios. Use interceptor to configure it to always have the auth header set with the token
-userAxios.interceptors.request.use(config => {
-    const token = localStorage.getItem("token")
-    config.headers.Authorization = `Bearer ${token}`
-    return config
-})
+// const userAxios = axios.create()  //replica of axios. Use interceptor to configure it to always have the auth header set with the token
+// userAxios.interceptors.request.use(config => {
+//     const token = localStorage.getItem("token")
+//     config.headers.Authorization = `Bearer ${token}`
+//     return config
+// })
 
 
 //note: gotta stringify to save a complex data type in local storage (need to save as a json string).  Need to parse back into an object to use in js (like to save in the state).  So stringify when going up to local storage, parse when going back down from local storage
@@ -22,7 +23,6 @@ function UserProvider(props){
 
     const [userState, setUserState] = useState(initState)
     const [issues, setIssues] = useState([])
-    // const [comments, setComments] = useState([])
 
     const signup = (credentials) => {
         axios.post("/auth/signup", credentials)
@@ -48,8 +48,7 @@ function UserProvider(props){
             localStorage.setItem("token", token)
             localStorage.setItem("user", JSON.stringify(user))
             getUserPosts()
-            getAllPosts()
-            // getComments()
+            // getAllPosts()
             setUserState(prevUserState => ({
                 ...prevUserState,
                 user,
@@ -84,7 +83,7 @@ function UserProvider(props){
     }
 
     const getUserPosts = () => {
-        userAxios.get("/api/issue/user")
+        authClient.get("/api/issue/user")
             .then(res => {
                 setUserState(prevState => ({
                     ...prevState,
@@ -95,14 +94,14 @@ function UserProvider(props){
     }
 
     const getAllPosts = () => {
-        userAxios.get("/api/issue")
+        authClient.get("/api/issue")
             .then(res => setIssues(res.data))
             .catch(err => console.log(err.response.data.errMsg))
     }
 
 
     const addPost = (newPost) => {
-        userAxios.post("api/issue", newPost)
+        authClient.post("api/issue", newPost)
             .then(res => {
                 setUserState(prevState => ({
                     ...prevState,
@@ -112,15 +111,11 @@ function UserProvider(props){
             .catch(err => console.log(err.response.data.errMsg))
     }
 
-
-    //post a comment
-    // const addComment = (newComment) => {
-    //     userAxios.post("api/issue/comments/:issueId", newComment)
-    //     .then(res => {
-    //         setComments(prevComments => [...prevComments, res.data])
-    //     })
-    //     .catch(err => console.log(err))
-    // }
+    const deletePost = (issueId) => {
+        authClient.delete(`/api/issue/${issueId}`)
+          .then(res => {setIssues(prevIssues => prevIssues.filter(issue => issue._id !== issueId))})
+          .catch(err => console.log(err.response.data.errMsg))
+      }
 
     return(
         <UserContext.Provider 
@@ -132,7 +127,8 @@ function UserProvider(props){
                 addPost,
                 resetAuthErr,
                 issues,
-                userAxios
+                getAllPosts,
+                deletePost
             }}>
             {props.children}
         </UserContext.Provider>

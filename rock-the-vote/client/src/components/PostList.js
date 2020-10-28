@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Post from "./Post"
-// import {Link} from "react-router-dom"
+import {UserContext} from "../context/UserProvider"
 
 function PostList(props) {
     const {posts} = props
+    const {deletePost} = useContext(UserContext)
+
     const issuePosts = posts.map(post => (
-        <Post {...post} key={post._id} />
+        <Post {...post} key={post._id} delete={deletePost} />
     ))
     return (
         <div className="post-list">

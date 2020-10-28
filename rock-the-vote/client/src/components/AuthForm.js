@@ -5,10 +5,7 @@ function AuthForm(props) {
         handleChange,
         handleSubmit,
         btnText,
-        inputs: {
-            username, password
-
-        },
+        inputs: {username, password},
         errMsg
     } = props
 
