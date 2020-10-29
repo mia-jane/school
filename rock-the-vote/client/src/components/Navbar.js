@@ -7,7 +7,7 @@ function Navbar(props) {
         <div className="navbar">
             <Link to="/profile">Profile</Link>
             <Link to="/public">Public</Link>
-            <button onClick={logout}>Logout</button>
+            <button className="logout-btn" onClick={logout}>Logout</button>
         </div>
     );
 }

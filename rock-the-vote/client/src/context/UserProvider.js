@@ -3,12 +3,6 @@ import {authClient} from "../utils/api"
 import axios from "axios"
 
 const UserContext = React.createContext()
-// const userAxios = axios.create()  //replica of axios. Use interceptor to configure it to always have the auth header set with the token
-// userAxios.interceptors.request.use(config => {
-//     const token = localStorage.getItem("token")
-//     config.headers.Authorization = `Bearer ${token}`
-//     return config
-// })
 
 
 //note: gotta stringify to save a complex data type in local storage (need to save as a json string).  Need to parse back into an object to use in js (like to save in the state).  So stringify when going up to local storage, parse when going back down from local storage
@@ -38,7 +32,6 @@ function UserProvider(props){
                 }))
             })
             .catch(err => handleAuthErr(err.response.data.errMsg))
-            //error.response.data.errMsg
     }
 
     const login = (credentials) => {
@@ -47,8 +40,7 @@ function UserProvider(props){
             const {user, token} = res.data
             localStorage.setItem("token", token)
             localStorage.setItem("user", JSON.stringify(user))
-            getUserPosts()
-            // getAllPosts()
+            // getUserPosts()
             setUserState(prevUserState => ({
                 ...prevUserState,
                 user,
@@ -117,6 +109,22 @@ function UserProvider(props){
           .catch(err => console.log(err.response.data.errMsg))
       }
 
+    const upVote = (issueId) => {
+        authClient.put(`/api/issue/upvote/${issueId}`)
+        .then(res => {
+            setIssues(prevIssues => prevIssues.map(issue => issue._id !== issueId ? issue : res.data))
+        })
+        .catch(err => console.log(err.response.data.errMsg))
+    }
+
+    const downVote = (issueId) => {
+        authClient.put(`/api/issue/downvote/${issueId}`)
+        .then(res => {
+            setIssues(prevIssues => prevIssues.map(issue => issue._id !== issueId ? issue : res.data))
+        })
+        .catch(err => console.log(err.response.data.errMsg))
+    }
+
     return(
         <UserContext.Provider 
             value={{
@@ -128,7 +136,10 @@ function UserProvider(props){
                 resetAuthErr,
                 issues,
                 getAllPosts,
-                deletePost
+                deletePost,
+                getUserPosts,
+                upVote,
+                downVote
             }}>
             {props.children}
         </UserContext.Provider>

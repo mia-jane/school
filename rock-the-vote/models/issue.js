@@ -10,6 +10,13 @@ const issueSchema = new Schema({
         type: String,
         required: true
     },
+    upvotes: [new Schema({
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+            unique: true
+        }
+    })],
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",

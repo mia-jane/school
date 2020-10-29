@@ -6,6 +6,10 @@ import PostList from "../components/PostList"
 function Public(props) {
     
     const { addPost, issues, getAllPosts } = useContext(UserContext)
+
+    issues.sort((a,b) => {
+        return b.upvotes-a.upvotes
+    })
     useEffect(()=> {
         getAllPosts()
     }, [])

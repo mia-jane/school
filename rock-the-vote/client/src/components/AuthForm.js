@@ -28,7 +28,7 @@ function AuthForm(props) {
                     name="password"
                     onChange={handleChange}
                     placeholder="Password" />
-                <button>{btnText}</button>
+                <button className="auth-button">{btnText}</button>
                 <p style={{color: "red"}}>{errMsg}</p>
             </form>
         </div>

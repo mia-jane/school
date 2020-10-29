@@ -1,12 +1,12 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useRef} from 'react';
 import { Link } from "react-router-dom"
 import { UserContext } from "../context/UserProvider"
 
 
 function Post(props) {
-    const {title, description, _id } = props
-    const {user} = useContext(UserContext)
-    const [count, setCount] = useState(0)
+    const {title, description, _id, upvotes } = props
+    const {user, upVote, downVote} = useContext(UserContext)
+    const btn = useRef(null)
 
     // const deleteButton = (e) => {
     //     // e.persist()
@@ -17,13 +17,6 @@ function Post(props) {
         return props.user === user._id
     }
 
-    const upVote = () => {
-        setCount(prevCount => prevCount + 1)
-    }
-
-    const downVote = () => {
-        setCount(prevCount => prevCount -1)
-    }
 
     return (
         <div className="post">
@@ -31,11 +24,11 @@ function Post(props) {
                 <h2>{title}</h2>
                 <p>{description}</p>
                 <p>posted by user</p>
-                <p>{count} upvotes</p>
+                <p>{upvotes.length} upvotes</p>
             </Link>
             { shouldDisplayDelete() && <button onClick={() => props.delete(_id)}>delete</button>}
-            <button onClick={upVote}>Upvote</button>
-            <button onClick={downVote}>Downvote</button>
+            <button ref={btn} onClick={() => upVote(_id)}>Upvote</button>
+            <button ref={btn} onClick={() => downVote(_id)}>Downvote</button>
         </div>
         // </Link>
     );
