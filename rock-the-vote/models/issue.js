@@ -10,13 +10,17 @@ const issueSchema = new Schema({
         type: String,
         required: true
     },
-    upvotes: [new Schema({
-        user: {
-            type: Schema.Types.ObjectId,
-            ref: "User",
-            unique: true
-        }
-    })],
+    // upvotes: [new Schema({
+    //     user: {
+    //         type: Schema.Types.ObjectId,
+    //         ref: "User",
+    //         unique: true
+    //     }
+    // })],
+    upvotes: {
+        type: Number,
+        default: 0
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",

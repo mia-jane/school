@@ -24,7 +24,7 @@ function Post(props) {
                 <h2>{title}</h2>
                 <p>{description}</p>
                 <p>posted by user</p>
-                <p>{upvotes.length} upvotes</p>
+                <p>{upvotes} upvotes</p>
             </Link>
             { shouldDisplayDelete() && <button onClick={() => props.delete(_id)}>delete</button>}
             <button ref={btn} onClick={() => upVote(_id)}>Upvote</button>
