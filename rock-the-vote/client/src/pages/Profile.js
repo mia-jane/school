@@ -8,9 +8,10 @@ function Profile(props) {
     useEffect(() => {getUserPosts()}, [])
 
     return (
-        <div>
-            <h1>{username}</h1>
-            <h2>Your posts</h2>
+        <div className="profile">
+            <h1 className="header">Profile</h1>
+            <h1 className="name">{username}</h1>
+            <h2 className="your-posts">Your posts</h2>
             <PostList posts={posts} />
         </div>
     );

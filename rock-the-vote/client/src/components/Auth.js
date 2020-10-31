@@ -32,7 +32,7 @@ function Auth() {
     }
 
     return (
-        <div className="auth-container">
+        <div className="auth">
             <h1>Rock the Vote</h1>
             { !toggle ?
                 <>

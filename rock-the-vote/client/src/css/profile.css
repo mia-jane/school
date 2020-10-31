@@ -1,0 +1,15 @@
+.header {
+    font-size: 60px;
+    background-color: #fbb02d;
+    margin: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.name {
+    margin-left: 60px;
+}
+
+.your-posts {
+    margin-left: 80px;
+}

@@ -1,15 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 
-.App {
+/* .App {
   text-align: center;
+} */
+body {
+  background: #ffffff;
+  font-family: 'Playfair Display', serif;
 }
 
 
 .navbar {
   display: flex;
-  background-color: ghostwhite;
-  justify-content: space-around;
+  background-color: #fbb02d;
+  color: #231942;
+  justify-content: flex-end;
   align-items: center;
   height: 60px;
   font-family: 'Playfair Display', serif;
@@ -18,28 +23,14 @@
   top: 0;
 }
 
-.post {
-  width: 80%;
-  height: auto;
-  margin: auto;
-  /* background-color: rgb(255, 255, 255, 0.7); */
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  padding: 20px;
-  margin-bottom: 20px;
+.navbar > button {
+  padding: 5px;
   background-color: white;
-  border-radius: 15px;
+  border: 2px solid black;
+  border-radius: 8px;
 }
 
-.post:hover {
-  cursor: pointer;
-}
 
-.post-list {
-  margin: 30px;
-  border-radius: 15px;
-}
 
 
 

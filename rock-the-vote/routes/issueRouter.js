@@ -37,8 +37,104 @@ issueRouter.post("/", (req, res, next) => {
     })
 })
 
-//adding a downvote
-// issueRouter.put('/downvote:issueId/')
+
+
+//like a post
+issueRouter.put("/upvote/:issueId", (req, res, next) => {
+    // find the issue
+    Issue.findById(req.params.issueId, (err, issue) =>{
+        // append the  upvote to the array
+        const exists = Array.from(issue.upvotes).find(upvote => String(upvote.user) === req.user._id);
+        if(!exists) {
+            issue.upvotes.push({user: req.user});
+        // save the issue
+            issue.save(err => {
+             if(err){
+                    res.status(500);
+                    return next(err);
+             }
+               return res.status(201).send(issue);
+            })
+        //  send it back to the client
+        } else {
+            return res.status(201).send(issue)    
+            }
+    })
+})
+
+//downvote
+issueRouter.put("/downvote/:issueId", (req, res, next) => {
+    // find the issue
+    Issue.findById(req.params.issueId, (err, issue) =>{
+        // append the  upvote to the array
+        const exists = Array.from(issue.downvotes).find(upvote => String(downvote.user) === req.user._id);
+        if(!exists) {
+            issue.downvotes.push({user: req.user});
+        // save the issue
+            issue.save(err => {
+             if(err){
+                    res.status(500);
+                    return next(err);
+             }
+               return res.status(201).send(issue);
+            })
+        //  send it back to the client
+        } else {
+            return res.status(201).send(issue)    
+            }
+    })
+})
+
+
+
+//undo upvote
+issueRouter.put("/upvote/:issueId/:upvoteId", (req, res, next) => {
+    // find the issue
+    Issue.findById(req.params.issueId, (err, issue) =>{
+        const exists = Array.from(issue.upvotes).find(upvote => String(upvote.user) === req.user._id);
+        if(exists) {
+            issue.upvotes.id(req.params.upvoteId).remove();
+        // save the issue
+            issue.save(err => {
+             if(err){
+                    res.status(500);
+                    return next(err);
+             }
+               return res.status(201).send(issue);
+            })
+        //  send it back to the client
+        } else {
+            return res.status(201).send(issue)    
+        }
+    })
+})
+
+//remove a downvote
+issueRouter.put("/downvote/:issueId/:downvoteId", (req, res, next) => {
+    // find the issue
+    Issue.findById(req.params.issueId, (err, issue) =>{
+        const exists = Array.from(issue.downvotes).find(downvote => String(downvote.user) === req.user._id);
+        if(exists) {
+            issue.downvotes.id(req.params.downvoteId).remove();
+        // save the issue
+            issue.save(err => {
+             if(err){
+                    res.status(500);
+                    return next(err);
+             }
+               return res.status(201).send(issue);
+            })
+        //  send it back to the client
+        } else {
+            return res.status(201).send(issue)    
+        }
+    })
+})
+
+
+
+
+
 // // removing a downvote
 // issueRouter.put('/downvote/:issueId/:downvoteId')
 
@@ -48,55 +144,9 @@ issueRouter.post("/", (req, res, next) => {
    // remove the upvote based on upvoteId using issue.upvotes.id().remove()
 
 // })
-//like a post
-// issueRouter.put("/upvote/:issueId", (req, res, next) => {
-//     // Issue.findOneAndUpdate(
-//     //     // {_id: req.params.issueId},
-//     //     // {new: true},
-//     //     // (err, updatedIssue) => {
-//     //     //     if(err){
-//     //     //         res.status(500)
-//     //     //         return next(err)
-//     //     //     }
-//     //     //     return res.status(201).send(updatedIssue)
-//     //     // }
-//     // )
-//     // find the issue
-//     Issue.findById(req.params.issueId, (err, issue) =>{
-//         // append the  upvote to the array
-//         const exists = Array.from(issue.upvotes).find(upvote => String(upvote.user) === req.user._id);
-//         if(!exists) {
-//             issue.upvotes.push({user: req.user});
-//         // save the issue
-//             issue.save(err => {
-//              if(err){
-//                     res.status(500);
-//                     return next(err);
-//              }
-//                return res.status(201).send(issue);
-//             })
-//         } else {
-//             return res.status(201).send(issue)    
-//             }
 
-//     })
-    // send it back to the client
-// })
 
-issueRouter.put("/downvote/:issueId", (req,res, next) => {
-    Issue.findOneAndUpdate(
-        {_id: req.params.issueId},
-        {$inc: { upvotes: -1}},
-        {new: true},
-        (err, updatedIssue) => {
-            if(err){
-                res.status(500)
-                return next(err)
-            }
-            return res.status(201).send(updatedIssue)
-        }
-    )
-})
+
 
 
 issueRouter.delete("/:issueId", (req, res, next) => {

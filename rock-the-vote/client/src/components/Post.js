@@ -1,12 +1,13 @@
 import React, {useContext, useRef} from 'react';
 import { Link } from "react-router-dom"
 import { UserContext } from "../context/UserProvider"
+import "../css/post.css"
 
 
 function Post(props) {
-    const {title, description, _id, upvotes } = props
+    const {title, description, _id, upvotes, downvotes } = props
     const {user, upVote, downVote} = useContext(UserContext)
-    const btn = useRef(null)
+    // const btn = useRef(null)
 
     // const deleteButton = (e) => {
     //     // e.persist()
@@ -20,17 +21,19 @@ function Post(props) {
 
     return (
         <div className="post">
-            <Link key={_id} to={`/comments/${_id}`}>
-                <h2>{title}</h2>
+            <Link key={_id} to={`/comments/${_id}`} className="links">
+                <h2 className="post-title">{title}</h2>
                 <p>{description}</p>
                 <p>posted by user</p>
-                <p>{upvotes} upvotes</p>
             </Link>
-            { shouldDisplayDelete() && <button onClick={() => props.delete(_id)}>delete</button>}
-            <button ref={btn} onClick={() => upVote(_id)}>Upvote</button>
-            <button ref={btn} onClick={() => downVote(_id)}>Downvote</button>
+                { shouldDisplayDelete() ? <button className="x-button" onClick={() => props.delete(_id)}>x</button> : <div></div>}
+                <div className="post-extras">
+                    <span className="upvote-btn" onClick={() => upVote(_id)}></span>
+                    <span className="votes">{upvotes.length}</span>
+                    <span className="downvote-btn" onClick={() => downVote(_id)}></span>
+    <span className="votes">{downvotes.length}</span>
+            </div>
         </div>
-        // </Link>
     );
 }
 

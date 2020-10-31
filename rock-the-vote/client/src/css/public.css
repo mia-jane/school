@@ -1,0 +1,40 @@
+.header {
+    padding-left: 50px;
+}
+
+.post-form {
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
+    width: 300px;
+    height: 150px;
+    grid-gap: 5px;
+    margin-left: 140px;
+    margin-top: 30px;
+}
+
+.post-form > input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #5F0A87;
+}
+
+.post-form > textarea {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: #5F0A87 solid 2px;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.post-form > button {
+    width: 90px;
+    background-color: #5F0A87;
+    border: none;
+    color: #F7F7F9;
+}
+
+/* #595758 */

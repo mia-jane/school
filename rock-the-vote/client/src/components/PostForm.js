@@ -23,8 +23,8 @@ function PostForm(props) {
         //passdown fntn from axios call here
     }
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className="postform-container">
+            <form className="post-form" onSubmit={handleSubmit}>
                 <input 
                     className="post-input"
                     id="title-input"
