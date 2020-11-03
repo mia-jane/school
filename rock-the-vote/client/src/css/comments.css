@@ -1,0 +1,67 @@
+.comment-header {
+    font-size: 50px;
+    margin-left: 50px;
+}
+
+.comment-form {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 140px 140px 140px 140px;
+    grid-template-rows: 20px 25px;
+    width: 500px;
+    grid-gap: 5px;
+}
+
+.comment-form > input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #9B5DE5;
+    grid-column: 1/5;
+}
+
+.comment-form > button {
+    border: none;
+    background-color: #9B5DE5;
+    color: white;
+    font-weight: bold;
+}
+
+.comment-container {
+    margin: 30px 100px 30px 80px;
+    border-bottom: 1px solid #9B5DE5;
+}
+
+.comment {
+    font-size: 20px;
+    color: black;
+}
+
+.x-button {
+    width: 20px;
+    height: 20px;
+    background-color: #F76C5E;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    margin: 4px;
+}
+
+.edit-btn {
+    background-color: #9B5DE5;
+    border: none;
+    color: white;
+    font-weight: bold;
+    height: 20px;
+    margin-bottom: 4px;
+}
+
+.close-btn {
+    background-color: black;
+    border: none;
+    color: white;
+    font-weight: bold;
+    height: 25px;
+    margin-bottom: 4px;
+}

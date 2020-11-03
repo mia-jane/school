@@ -116,9 +116,26 @@ function UserProvider(props){
         })
         .catch(err => console.log(err.response.data.errMsg))
     }
+    // un-upvote
+    const unUpvote = (issueId, upvoteId) => {
+        authClient.put(`/api/issue/undo-upvote/${issueId}/${upvoteId}`)
+        .then(res => {
+            setIssues(prevIssues => prevIssues.map(issue => issue._id !== issueId ? issue : res.data))
+        })
+        .catch(err => console.log(err.response.data.errMsg))
+    }
 
     const downVote = (issueId) => {
         authClient.put(`/api/issue/downvote/${issueId}`)
+        .then(res => {
+            setIssues(prevIssues => prevIssues.map(issue => issue._id !== issueId ? issue : res.data))
+        })
+        .catch(err => console.log(err.response.data.errMsg))
+    }
+
+    // un-downvote
+    const unDownvote = (issueId, downvoteId) => {
+        authClient.put(`/api/issue/undo-downvote/${issueId}/${downvoteId}`)
         .then(res => {
             setIssues(prevIssues => prevIssues.map(issue => issue._id !== issueId ? issue : res.data))
         })
@@ -141,7 +158,9 @@ function UserProvider(props){
                 deletePost,
                 getUserPosts,
                 upVote,
-                downVote
+                unUpvote,
+                downVote,
+                unDownvote
             }}>
             {props.children}
         </UserContext.Provider>

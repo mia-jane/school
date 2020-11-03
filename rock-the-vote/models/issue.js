@@ -13,15 +13,13 @@ const issueSchema = new Schema({
     upvotes: [new Schema({
         user: {
             type: Schema.Types.ObjectId,
-            ref: "User",
-            unique: true
+            ref: "User"
         }
     })],
     downvotes: [new Schema({
         user: {
             type: Schema.Types.ObjectId,
-            ref: "User",
-            unique: true
+            ref: "User"
         }
     })],
     user: {

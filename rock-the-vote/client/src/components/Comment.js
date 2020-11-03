@@ -14,22 +14,31 @@ function Comment(props) {
     const handleOnEdit = () => {
         setOnEdit(true)
     }
+
+    const handleEditSubmit = ( updatedComment, commentId) => {
+        //props.edit is a promise
+        props.edit(updatedComment, commentId)
+            .then(() => setOnEdit(false))
+        
+    }
     return (
-        <div className="comment">
+        <div className="comment-container">
             {!onEdit ? 
                 <>
-                    <p>{comment}</p>
-                    {shouldDisplayDelete() && <><button onClick={() => props.delete(_id)}>delete</button><button onClick={handleOnEdit}>Edit</button></>}
+                    <p className="comment">{comment}</p>
+                    {shouldDisplayDelete() && <><button className="x-button" onClick={() => props.delete(_id)}>x</button>
+                    <button className="edit-btn" onClick={handleOnEdit}>Edit</button></>}
                 </>
             : 
                 <>
                     <CommentForm
+                        className="experiment-form"
                         comment={comment}
                         btnText="submit edit"
                         _id={_id}
-                        submit={props.edit}
+                        submit={handleEditSubmit}
                     />
-                    <button onClick={() => setOnEdit(prevOnEdit => !prevOnEdit)}>Close</button>
+                    <button className="close-btn" onClick={() => setOnEdit(prevOnEdit => !prevOnEdit)}>Close</button>
                 </>}
         </div>
     );
