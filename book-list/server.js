@@ -4,7 +4,6 @@ require("dotenv").config()
 const mongoose = require("mongoose")
 const morgan = require("morgan")
 const expressJwt = require("express-jwt")
-const { populate } = require("./models/book")
 
 
 app.use("/", express.json())
@@ -24,7 +23,7 @@ mongoose.connect("mongodb://localhost:27017/booksdb",
 )
 
 app.use("/auth", require("./routes/authRouter"))
-app.use("/api", expressJwt( { secret: process.env.SECRET, algorithms: ['HS256']} ))
+app.use("/api", expressJwt( { secret: process.env.SECRET, algorithms: ['HS256']} )) //creates req.user (payload)
 app.use("/api/books", require("./routes/bookRouter"))
 
 app.use((err, req, res, next) => {

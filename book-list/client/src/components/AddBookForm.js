@@ -1,0 +1,67 @@
+import React, {useState} from 'react';
+import "../css/form.css"
+
+const initInputs = {
+    title:"",
+    imgUrl:"",
+    summary:"",
+    genre:""
+}
+
+function AddBookForm(props) {
+    const [inputs, setInputs] = useState(initInputs)
+
+    const handleChange = (e) => {
+        const {name, value} = e.target
+        setInputs(prevInputs => ({
+            ...prevInputs,
+            [name]: value
+        }))
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        props.addBook(inputs)
+        setInputs(initInputs)
+    }
+
+    const {title, imgUrl, summary, genre} = inputs
+
+    return (
+        <div className="book-form-container">
+            <form className="book-form" onSubmit={handleSubmit}>
+                <input 
+                    type="text" 
+                    placeholder="cover image url"
+                    name="imgUrl"
+                    value={imgUrl}
+                    onChange={handleChange}
+                />
+                <input 
+                    type="text" 
+                    placeholder="title"
+                    name="title"
+                    value={title}
+                    onChange={handleChange} 
+                />
+                <input 
+                    type="text" 
+                    placeholder="summary"
+                    name="summary"
+                    value={summary}
+                    onChange={handleChange} 
+                />
+                <input 
+                    type="text" 
+                    placeholder="genre"
+                    name="genre"
+                    value={genre}
+                    onChange={handleChange} 
+                />
+                <button className="add-btn">Add</button>
+            </form>
+        </div>
+    );
+}
+
+export default AddBookForm;

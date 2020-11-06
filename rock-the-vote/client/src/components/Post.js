@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
 import { Link } from "react-router-dom"
-// import issue from '../../../models/issue';
 import { UserContext } from "../context/UserProvider"
 import "../css/post.css"
 
@@ -18,14 +17,6 @@ function Post(props) {
     const shouldDisplayDelete = () => {
         return props.user === user._id
     }
-
-    // const postedBy = () => {
-    //     if(props.user === user._id){
-    //         return user.username
-    //     }else {
-    //         console.log("why")
-    //     }
-    // }
 
     const toggleUpvote = () => {
         const upvote = upvotes.find(upvote => upvote.user === user._id)
@@ -62,10 +53,6 @@ function Post(props) {
             return ""
         }
     }
-
-    // const postedBy = () => {
-    //     const postsByUser = issues.filter(issue => {})
-    // }
 
 
     return (

@@ -7,8 +7,18 @@ const bookSchema = new Schema({
         required: true
     },
     imageUrl: String,
-    genre: String,
-    summary: String,
+    genre: {
+        type: String,
+        required: true,
+        },
+    summary: {
+        type: String,
+        required: true
+    },
+    read:{
+        type: Boolean,
+        default: false
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",

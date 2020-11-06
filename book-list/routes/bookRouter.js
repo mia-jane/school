@@ -2,7 +2,7 @@ const express = require("express")
 const bookRouter = express.Router()
 const Book = require("../models/book")
 
-bookRouter.get("/user", (req, res, next) => {
+bookRouter.get("/unread", (req, res, next) => {
     Book.find({user: req.user._id}, (err, books) => {
         if(err){
             res.status(500)
@@ -12,7 +12,7 @@ bookRouter.get("/user", (req, res, next) => {
     })
 })
 
-bookRouter.post("/", (req, res, next) => {
+bookRouter.post("/unread", (req, res, next) => {
     req.body.user = req.user._id
     const newBook = new Book(req.body)
     newBook.save((err, savedBook) => {

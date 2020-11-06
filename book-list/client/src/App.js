@@ -1,18 +1,24 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './App.css';
-import Navbar from './components/Navbar';
-// import axios from "axios"
+import {Switch, Route, Redirect} from "react-router-dom"
+import {UserContext} from "./context/UserProvider"
+
+import Navbar from './components/Navbar'
+import Auth from "./components/Auth"
+import Read from "./pages/Read"
+import Unread from "./pages/Unread"
 
 
 function App() {
-  // useEffect(() => {
-  //   axios.get("/books")
-  //     .then(res => console.log(res))
-  //     .catch(console.log(err))
-  // }, [])
+  const { token, logout } = useContext(UserContext)
   return (
     <div className="App">
-      <Navbar />
+      <Navbar logout={logout} />
+      <Switch>
+          <Route exact path="/" render={() => token ? <Redirect to="/unread" /> : <Auth />} />
+          <Route path="/read" render={() => <Read />} />
+          <Route path="/unread" render={() => <Unread />} />
+      </Switch>
     </div>
   );
 }

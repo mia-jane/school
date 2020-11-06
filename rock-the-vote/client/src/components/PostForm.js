@@ -20,7 +20,6 @@ function PostForm(props) {
         e.preventDefault()
         props.addPost(inputs)
         setInputs(initInputs)
-        //passdown fntn from axios call here
     }
     return (
         <div className="postform-container">

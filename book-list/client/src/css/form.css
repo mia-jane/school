@@ -1,0 +1,44 @@
+.book-form-container {
+    margin: auto;
+    width: 50%;
+}
+
+.book-form {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: auto;
+}
+
+.book-form > input {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    /* red */
+    /* border-bottom: 2px solid #B10F2E; */
+    /* blue */
+    border-bottom: 2px solid #CFE8EF;
+}
+
+.book-form > input:focus {
+    outline-width: 0;
+}
+
+.add-btn {
+    width: 60px;
+    font-family: inherit;
+    font-size: 25px;
+    background-color: #A0C4E2;
+    color: white;
+    border: none;
+    margin: auto;
+    font-weight: 700;
+}
+
+.add-btn:hover {
+    cursor: pointer;
+    
+}
+
