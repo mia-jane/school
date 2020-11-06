@@ -95,17 +95,26 @@ function UserProvider(props){
         .catch(err => console.log(err.response.data.errMsg))
     }
 
-    const deleteUnreadBook = (bookId) => {
-        const unreadArr = userState.unreadBooks
+    const deleteBook = (bookId) => {
         authClient.delete(`/api/books/${bookId}` )
         .then(res => {
             setUserState(prevState => ({
                 ...prevState,
-                // unreadBooks: unreadArr.filter(book => book._id !== bookId)
                 unreadBooks: prevState.unreadBooks.filter(book => book._id !== bookId)
             }))
         })
         .catch(err => console.log(err.response.data.errMsg))
+    }
+
+    const editBook = (updatedBook, bookId) => {
+        authClient.put(`/api/books/${bookId}`, updatedBook)
+            .then(res => {
+                setUserState(prevState => ({
+                    ...prevState,
+                    unreadBooks: prevState.unreadBooks.map(book => book._id !== bookId ? book : res.data)
+                }))
+            })
+            .catch(err => console.log(err.response.data.errMsg))
     }
 
     return(
@@ -117,7 +126,8 @@ function UserProvider(props){
                 logout,
                 getUnread,
                 addUnreadBook,
-                deleteUnreadBook
+                deleteBook,
+                editBook
             }}>
             {props.children}
         </UserContext.Provider>

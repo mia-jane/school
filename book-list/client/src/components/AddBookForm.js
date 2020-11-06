@@ -1,14 +1,15 @@
 import React, {useState} from 'react';
 import "../css/form.css"
 
-const initInputs = {
-    title:"",
-    imgUrl:"",
-    summary:"",
-    genre:""
-}
+
 
 function AddBookForm(props) {
+    const initInputs = {
+        title: props.title || "",
+        imgUrl: props.imgUrl || "",
+        summary: props.summary || "",
+        genre: props.genre || ""
+    }
     const [inputs, setInputs] = useState(initInputs)
 
     const handleChange = (e) => {
@@ -21,7 +22,8 @@ function AddBookForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.addBook(inputs)
+        // props.addBook(inputs)
+        props.submit(inputs, props._id)
         setInputs(initInputs)
     }
 
@@ -58,7 +60,7 @@ function AddBookForm(props) {
                     value={genre}
                     onChange={handleChange} 
                 />
-                <button className="add-btn">Add</button>
+                <button className="add-btn">{props.btnText}</button>
             </form>
         </div>
     );
