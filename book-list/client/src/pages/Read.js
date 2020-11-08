@@ -1,21 +1,18 @@
-import React, {useEffect, useState} from 'react';
-import Book from "../components/Book"
-import axios from "axios"
+import React, {useContext, useEffect} from "react"
+import BookList from "../components/BookList"
 import AddBookForm from "../components/AddBookForm"
+import {UserContext} from "../context/UserProvider"
 
 function Read(props) {
-    const [books, setBooks] = useState([])
+    const {books, getFinished, addFinishedBook, deleteBook, editBook} = useContext(UserContext)
 
-    useEffect(() => {
-        axios.get("/books")
-          .then(res => setBooks(res.data))
-          .catch(err => console.log(err))
-        }, [])
+    useEffect(() => {getFinished()}, [])
+
     return (
         <div className="lists">
-            <h1>Read</h1>
-            <AddBookForm />
-            { books.map(book => <Book {...book} key={book._id} />) }
+            <h1>Finished</h1>
+            <AddBookForm submit={addFinishedBook} btnText="add" />
+            <BookList books={books} delete={deleteBook} edit={editBook} />
         </div>
     );
 }

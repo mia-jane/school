@@ -6,7 +6,7 @@ import "../css/form.css"
 function AddBookForm(props) {
     const initInputs = {
         title: props.title || "",
-        imgUrl: props.imgUrl || "",
+        imageUrl: props.imageUrl || "",
         summary: props.summary || "",
         genre: props.genre || ""
     }
@@ -27,7 +27,7 @@ function AddBookForm(props) {
         setInputs(initInputs)
     }
 
-    const {title, imgUrl, summary, genre} = inputs
+    const {title, imageUrl, summary, genre} = inputs
 
     return (
         <div className="book-form-container">
@@ -35,8 +35,8 @@ function AddBookForm(props) {
                 <input 
                     type="text" 
                     placeholder="cover image url"
-                    name="imgUrl"
-                    value={imgUrl}
+                    name="imageUrl"
+                    value={imageUrl}
                     onChange={handleChange}
                 />
                 <input 

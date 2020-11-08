@@ -154,24 +154,7 @@ issueRouter.put("/undo-downvote/:issueId/:downvoteId", (req, res, next) => {
     })
 })
 
-
-
-
-
-// // removing a downvote
-// issueRouter.put('/downvote/:issueId/:downvoteId')
-
-// //unlike a post
-// issueRouter.put('/upvote/:issueId/:upvoteId', (req,res, next) =>{
-   //find the issue based on issueId
-   // remove the upvote based on upvoteId using issue.upvotes.id().remove()
-
-// })
-
-
-
-
-
+//delete issue post
 issueRouter.delete("/:issueId", (req, res, next) => {
     Issue.findOneAndDelete(
         { _id: req.params.issueId, user: req.user._id}, (err, deletedIssue) => {
@@ -183,6 +166,7 @@ issueRouter.delete("/:issueId", (req, res, next) => {
         })
 })
 
+//edit issue post
 issueRouter.put("/:issueId", (req,res, next) => {
     Issue.findOneAndUpdate(
         {_id: req.params.issueId, user: req.user._id},

@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import AddBookForm from "../components/AddBookForm"
+import "../css/book.css"
 
 
 function Book(props) {
-    const {title, summary, genre, imgUrl, _id } = props
+    const {title, summary, genre, imageUrl, _id } = props
     const [onEdit, setOnEdit] = useState(false)
 
     const handleEditSubmit = ( updatedBook, bookId) => {
@@ -14,10 +15,11 @@ function Book(props) {
         <div className="book">
             { !onEdit ? 
                 <>
-                 <img src={imgUrl} alt="" />
+                 <img src={imageUrl} alt="book cover" />
                 <h5>{title}</h5>
                 <p>{genre}</p>
                 <p>{summary}</p>
+                <button>Finished</button>
                 <button onClick={() => props.delete(props._id)}>x</button>
                 <button onClick={()=> setOnEdit(true)}>Edit</button>
                 </>
@@ -27,7 +29,7 @@ function Book(props) {
                         btnText="submit edit" 
                         submit={handleEditSubmit}
                         title={title}
-                        imgUrl={imgUrl}
+                        imageUrl={imageUrl}
                         summary={summary}
                         genre={genre}
                         _id={_id}

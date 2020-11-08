@@ -2,8 +2,10 @@ const express = require("express")
 const bookRouter = express.Router()
 const Book = require("../models/book")
 
-bookRouter.get("/unread", (req, res, next) => {
-    Book.find({user: req.user._id}, (err, books) => {
+//get finished books
+bookRouter.get("/", (req, res, next) => {
+    const finished = req.query.finished === "true"
+    Book.find({user: req.user._id, finished: finished}, (err, books) => {
         if(err){
             res.status(500)
             return next(err)
@@ -12,7 +14,21 @@ bookRouter.get("/unread", (req, res, next) => {
     })
 })
 
-bookRouter.post("/unread", (req, res, next) => {
+//post unfinished
+bookRouter.post("/finished", (req, res, next) => {
+    req.body.user = req.user._id
+    const newBook = new Book(req.body)
+    newBook.finished = true
+    newBook.save((err, savedBook) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(201).send(savedBook)
+    })
+})
+
+bookRouter.post("/unfinished", (req, res, next) => {
     req.body.user = req.user._id
     const newBook = new Book(req.body)
     newBook.save((err, savedBook) => {
@@ -23,6 +39,33 @@ bookRouter.post("/unread", (req, res, next) => {
         return res.status(201).send(savedBook)
     })
 })
+
+
+//flip finished boolean
+bookRouter.put("/move/:bookId", (req, res, next) => {
+    Book.findById(req.params.bookId, (err, book) => {
+        if(book.finished === false){
+            book.finished = !book.finished
+            book.save(err => {
+                if(err){
+                    res.status(500)
+                    return next(err)
+                }
+                return res.status(201).send(book)
+            })
+        } else if(book.finished === true){
+            book.finished = !book.finished
+            book.save(err => {
+                if(err) {
+                    res.status(500)
+                    return next(err)
+                }
+                return res.status(201).send(book)
+            })
+        }
+    })
+})
+
 
 bookRouter.put("/:bookId", (req, res, next ) => {
     Book.findOneAndUpdate(

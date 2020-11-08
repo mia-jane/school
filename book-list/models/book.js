@@ -15,7 +15,7 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    read:{
+    finished:{
         type: Boolean,
         default: false
     },

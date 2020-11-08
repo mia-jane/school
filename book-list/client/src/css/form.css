@@ -13,13 +13,12 @@
 .book-form > input {
     padding: 10px;
     margin-bottom: 5px;
-    border-top: none;
+    /* border-top: none;
     border-left: none;
     border-right: none;
-    /* red */
-    /* border-bottom: 2px solid #B10F2E; */
-    /* blue */
-    border-bottom: 2px solid #CFE8EF;
+    border-bottom: 2px solid #CFE8EF; */
+    border: 2px solid #CFE8EF;
+    border-radius: 7px;
 }
 
 .book-form > input:focus {

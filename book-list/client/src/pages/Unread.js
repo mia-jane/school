@@ -4,7 +4,7 @@ import AddBookForm from "../components/AddBookForm"
 import {UserContext} from "../context/UserProvider"
 
 function Unread(props) {
-    const {unreadBooks, getUnread, addUnreadBook, deleteBook, editBook} = useContext(UserContext)
+    const {books, getUnread, addUnreadBook, deleteBook, editBook} = useContext(UserContext)
 
     useEffect(() => {getUnread()}, [])
 
@@ -12,7 +12,7 @@ function Unread(props) {
         <div className="lists">
             <h1>Unread</h1>
             <AddBookForm submit={addUnreadBook} btnText="add" />
-            <BookList books={unreadBooks} delete={deleteBook} edit={editBook} />
+            <BookList books={books} delete={deleteBook} edit={editBook} />
         </div>
     );
 }

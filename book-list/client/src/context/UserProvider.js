@@ -8,13 +8,11 @@ function UserProvider(props){
     const initState = { 
         user: JSON.parse(localStorage.getItem("user")) || {}, 
         token: localStorage.getItem("token") || "", 
-        readBooks:[],
-        unreadBooks: [],
+        books: [],
         errMsg: ""
     }
 
     const [userState, setUserState] = useState(initState)
-    const [books, setBooks] = useState([])
 
     const signup = (credentials) => {
         axios.post("/auth/signup", credentials)
@@ -55,7 +53,7 @@ function UserProvider(props){
             user: {},
             token: "",
             readBooks:[],
-            unreadBooks:[]
+            books:[]
         })
     }
 
@@ -66,30 +64,47 @@ function UserProvider(props){
         }))
     }
 
-    const resetAuthErr = () => {
-        setUserState(prevState => ({
-            ...prevState,
-            errMsg: ""
-        }))
-    }
 
     const getUnread = () => {
-        authClient.get("/api/books/unread")
+        authClient.get("/api/books?finished=false")
             .then(res => {
                 setUserState(prevUserState => ({
                     ...prevUserState,
-                    unreadBooks: res.data
+                    books: res.data
                 }))
             })
             .catch(err => console.log(err.response.data.errMsg))
     }
 
+    const getFinished = () => {
+        authClient.get("/api/books?finished=true")
+            .then(res => {
+                setUserState(prevUserState => ({
+                    ...prevUserState,
+                    books: res.data
+                    
+                }))
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    } 
+
     const addUnreadBook = (newBook) => {
-        authClient.post("/api/books/unread", newBook)
+        authClient.post("/api/books/unfinished", newBook)
         .then(res => {
             setUserState(prevState => ({
                 ...prevState,
-                unreadBooks: [...prevState.unreadBooks, res.data]
+                books: [...prevState.books, res.data]
+            }))
+        })
+        .catch(err => console.log(err.response.data.errMsg))
+    }
+
+    const addFinishedBook = (newBook) => {
+        authClient.post("/api/books/finished", newBook)
+        .then(res => {
+            setUserState(prevState => ({
+                ...prevState,
+                books: [...prevState.books, res.data]
             }))
         })
         .catch(err => console.log(err.response.data.errMsg))
@@ -100,7 +115,7 @@ function UserProvider(props){
         .then(res => {
             setUserState(prevState => ({
                 ...prevState,
-                unreadBooks: prevState.unreadBooks.filter(book => book._id !== bookId)
+                books: prevState.books.filter(book => book._id !== bookId)
             }))
         })
         .catch(err => console.log(err.response.data.errMsg))
@@ -111,7 +126,7 @@ function UserProvider(props){
             .then(res => {
                 setUserState(prevState => ({
                     ...prevState,
-                    unreadBooks: prevState.unreadBooks.map(book => book._id !== bookId ? book : res.data)
+                    books: prevState.books.map(book => book._id !== bookId ? book : res.data)
                 }))
             })
             .catch(err => console.log(err.response.data.errMsg))
@@ -127,7 +142,9 @@ function UserProvider(props){
                 getUnread,
                 addUnreadBook,
                 deleteBook,
-                editBook
+                editBook,
+                getFinished,
+                addFinishedBook
             }}>
             {props.children}
         </UserContext.Provider>
