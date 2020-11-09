@@ -7,17 +7,18 @@ import Navbar from './components/Navbar'
 import Auth from "./components/Auth"
 import Read from "./pages/Read"
 import Unread from "./pages/Unread"
+import ProtectedRoute from "./components/ProtectedRoute"
 
 
 function App() {
   const { token, logout } = useContext(UserContext)
   return (
     <div className="App">
-      <Navbar logout={logout} />
+      { token && <Navbar logout={logout} />}
       <Switch>
           <Route exact path="/" render={() => token ? <Redirect to="/unread" /> : <Auth />} />
-          <Route path="/read" render={() => <Read />} />
-          <Route path="/unread" render={() => <Unread />} />
+          <ProtectedRoute path="/read" component={Read} redirectTo="/" token={token} />
+          <ProtectedRoute path="/unread" component={Unread} redirectTo="/" token={token} />
       </Switch>
     </div>
   );

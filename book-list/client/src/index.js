@@ -7,11 +7,11 @@ import {UserProvider} from "./context/UserProvider"
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserProvider>
       <BrowserRouter>
+      <UserProvider>
           <App />
+        </UserProvider>
       </BrowserRouter>
-      </UserProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

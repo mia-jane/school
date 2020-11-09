@@ -2,10 +2,20 @@
     margin: auto;
     width: 300px;
     text-align: center;
+    padding-top: 100px;
 }
 
+/* 8 by 5 */
 img {
-    height: 100px;
-    width: 100px;
+    height: 320px;
+    width: 200px;
+}
+
+.book > h5 {
+    font-size: 30px;
+}
+
+.book > p {
+    font-size: 20px;
 }
 

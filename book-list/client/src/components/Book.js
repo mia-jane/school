@@ -19,7 +19,7 @@ function Book(props) {
                 <h5>{title}</h5>
                 <p>{genre}</p>
                 <p>{summary}</p>
-                <button>Finished</button>
+                <button onClick={() => props.toggleFinished(props._id)}>Finished</button>
                 <button onClick={() => props.delete(props._id)}>x</button>
                 <button onClick={()=> setOnEdit(true)}>Edit</button>
                 </>

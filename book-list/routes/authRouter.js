@@ -22,9 +22,9 @@ authRouter.post("/signup", (req, res, next) => {
                 return next(err)
             }
             //create token (token = payload + signature)
-            const token = jwt.sign(savedUser.toObject(), process.env.SECRET)
+            const token = jwt.sign(savedUser.withoutPassword(), process.env.SECRET)
             //send object back bc want to send both token and user
-            return res.status(201).send({token, user: savedUser})
+            return res.status(201).send({token, user: savedUser.withoutPassword()})
         })
     })
 })
@@ -38,14 +38,22 @@ authRouter.post("/login", (req, res, next) => {
             return next(err)
         }
         if(!user){
-            return next(new Error("username or password are incorrect"))
-        }
-        if(req.body.password !== user.password){
             res.status(403)
             return next(new Error("username or password are incorrect"))
         }
-        const token= jwt.sign(user.toObject(), process.env.SECRET)
-        return res.status(200).send({token, user})
+        user.checkPassword(req.body.password, (err, isMatch) => {
+            if(err){
+                res.status(403)
+                return next(new Error("Username or password are incorrect"))
+            }
+            //I don't understand this
+            if(!isMatch){
+                res.status(403)
+                return next(new Error("username or password are incorrect"))
+            }
+            const token= jwt.sign(user.withoutPassword(), process.env.SECRET)
+            return res.status(200).send({token, user: user.withoutPassword()})
+        })
     })
 })
 

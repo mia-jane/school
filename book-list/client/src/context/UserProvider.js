@@ -64,6 +64,13 @@ function UserProvider(props){
         }))
     }
 
+    function resetAuthErr(){
+        setUserState(prevState => ({
+            ...prevState,
+            errMsg: ""
+        }))
+    }
+
 
     const getUnread = () => {
         authClient.get("/api/books?finished=false")
@@ -132,6 +139,18 @@ function UserProvider(props){
             .catch(err => console.log(err.response.data.errMsg))
     }
 
+    //toggle finished and unfinished
+    const markFinished = (bookId) => {
+        authClient.put(`/api/books/move/${bookId}`)
+            .then(res => {
+                setUserState(prevState => ({
+                    ...prevState,
+                    books: prevState.books.map(book => book._id === bookId ? book : res.data)
+                }))
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+
     return(
         <UserContext.Provider
             value={{
@@ -144,7 +163,9 @@ function UserProvider(props){
                 deleteBook,
                 editBook,
                 getFinished,
-                addFinishedBook
+                addFinishedBook,
+                markFinished,
+                resetAuthErr
             }}>
             {props.children}
         </UserContext.Provider>

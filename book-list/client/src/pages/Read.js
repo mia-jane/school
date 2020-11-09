@@ -4,7 +4,7 @@ import AddBookForm from "../components/AddBookForm"
 import {UserContext} from "../context/UserProvider"
 
 function Read(props) {
-    const {books, getFinished, addFinishedBook, deleteBook, editBook} = useContext(UserContext)
+    const {books, getFinished, addFinishedBook, deleteBook, editBook, markFinished} = useContext(UserContext)
 
     useEffect(() => {getFinished()}, [])
 
@@ -12,7 +12,7 @@ function Read(props) {
         <div className="lists">
             <h1>Finished</h1>
             <AddBookForm submit={addFinishedBook} btnText="add" />
-            <BookList books={books} delete={deleteBook} edit={editBook} />
+            <BookList books={books} delete={deleteBook} edit={editBook} toggleFinished={markFinished} />
         </div>
     );
 }

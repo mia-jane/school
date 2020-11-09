@@ -5,7 +5,8 @@ function AuthForm(props) {
         handleChange, 
         handleSubmit, 
         inputs:{username, password}, 
-        btnText
+        btnText,
+        errMsg
     } = props
     return (
         <div>
@@ -29,6 +30,7 @@ function AuthForm(props) {
                     onChange={handleChange}
                 />
                 <button>{btnText}</button>
+                <p style={{color: "red"}}>{errMsg}</p>
             </form>
         </div>
     );
