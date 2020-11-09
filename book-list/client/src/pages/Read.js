@@ -12,7 +12,7 @@ function Read(props) {
         <div className="lists">
             <h1>Finished</h1>
             <AddBookForm submit={addFinishedBook} btnText="add" />
-            <BookList books={books} delete={deleteBook} edit={editBook} toggleFinished={markFinished} />
+            <BookList books={books} delete={deleteBook} edit={editBook} toggleFinished={markFinished} finishBtn="reread" />
         </div>
     );
 }

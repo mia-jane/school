@@ -12,7 +12,7 @@ function Unread(props) {
         <div className="lists">
             <h1>Unread</h1>
             <AddBookForm submit={addUnreadBook} btnText="add" />
-            <BookList books={books} delete={deleteBook} edit={editBook} toggleFinished={markFinished} />
+            <BookList books={books} delete={deleteBook} edit={editBook} toggleFinished={markFinished} finishBtn="finished" />
         </div>
     );
 }

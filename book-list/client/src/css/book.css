@@ -1,5 +1,7 @@
 .book {
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 150px;
     width: 300px;
     text-align: center;
     padding-top: 100px;
@@ -18,4 +20,41 @@ img {
 .book > p {
     font-size: 20px;
 }
+
+.btns-container {
+    display: flex;
+}
+
+button {
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #CFE8EF;
+    color: #373F51;
+}
+
+.finishBtn {
+    margin-left: 155px;
+    background-color: #373F51;
+    color: white;
+    border: none;
+}
+
+.xBtn {
+    background-color: white;
+    color: black;
+    margin-right: 5px;
+    border: none;
+    font-weight: bold;
+}
+
+.editBtn {
+    background-color: white;
+    border: none;
+}
+
+
 

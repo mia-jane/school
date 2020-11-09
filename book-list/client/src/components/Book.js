@@ -19,9 +19,12 @@ function Book(props) {
                 <h5>{title}</h5>
                 <p>{genre}</p>
                 <p>{summary}</p>
-                <button onClick={() => props.toggleFinished(props._id)}>Finished</button>
-                <button onClick={() => props.delete(props._id)}>x</button>
-                <button onClick={()=> setOnEdit(true)}>Edit</button>
+                <div className="btns-container">
+                    <button className="xBtn" onClick={() => props.delete(props._id)}>x</button>
+                    <button className="editBtn" onClick={()=> setOnEdit(true)}>Edit</button>
+                    <button className="finishBtn" onClick={() => props.toggleFinished(props._id)}>{props.finishBtn}</button>
+                </div>
+                
                 </>
                 :
                 <>
