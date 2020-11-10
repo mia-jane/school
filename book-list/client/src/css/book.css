@@ -30,7 +30,7 @@ button {
     border-radius: 5px;
 }
 
-button:hover {
+.btns-container > button:hover {
     cursor: pointer;
     background-color: #CFE8EF;
     color: #373F51;
@@ -54,6 +54,18 @@ button:hover {
 .editBtn {
     background-color: white;
     border: none;
+}
+
+.close-btn {
+    background-color: #CFE8EF;
+    color: #373F51;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.close-btn:hover {
+    cursor: pointer;
 }
 
 

@@ -13,11 +13,7 @@
 .book-form > input {
     padding: 10px;
     margin-bottom: 5px;
-    /* border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 2px solid #CFE8EF; */
-    border: 2px solid #CFE8EF;
+    border: 1px solid #373F51;
     border-radius: 7px;
 }
 
@@ -26,10 +22,11 @@
 }
 
 .add-btn {
-    width: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
     font-family: inherit;
-    font-size: 25px;
-    background-color: #A0C4E2;
+    font-size: 20px;
+    background-color: #373F51;
     color: white;
     border: none;
     margin: auto;
@@ -38,6 +35,5 @@
 
 .add-btn:hover {
     cursor: pointer;
-    
 }
 

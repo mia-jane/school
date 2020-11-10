@@ -145,7 +145,7 @@ function UserProvider(props){
             .then(res => {
                 setUserState(prevState => ({
                     ...prevState,
-                    books: prevState.books.map(book => book._id === bookId ? book : res.data)
+                    books: prevState.books.filter(book => book._id !== bookId)
                 }))
             })
             .catch(err => console.log(err.response.data.errMsg))
