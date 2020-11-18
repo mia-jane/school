@@ -44,4 +44,8 @@
     cursor: pointer;
 }
 
+.auth > p:hover {
+    cursor: pointer;
+}
+
 

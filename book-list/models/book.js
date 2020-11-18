@@ -9,8 +9,11 @@ const bookSchema = new Schema({
     imageUrl: String,
     genre: {
         type: String,
-        required: true,
+        required: true
         },
+    // genre: {
+    //     type: Array,
+    // },
     summary: {
         type: String,
         required: true

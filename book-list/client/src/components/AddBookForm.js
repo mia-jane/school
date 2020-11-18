@@ -22,7 +22,7 @@ function AddBookForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.submit(inputs, props._id)
+        props.submit({...inputs, finished: props.finished}, props._id)
         setInputs(initInputs)
     }
 

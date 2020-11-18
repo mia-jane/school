@@ -52,7 +52,6 @@ function UserProvider(props){
         setUserState({
             user: {},
             token: "",
-            readBooks:[],
             books:[]
         })
     }
@@ -72,42 +71,32 @@ function UserProvider(props){
     }
 
 
-    const getUnread = () => {
-        authClient.get("/api/books?finished=false")
-            .then(res => {
-                setUserState(prevUserState => ({
-                    ...prevUserState,
-                    books: res.data
-                }))
-            })
-            .catch(err => console.log(err.response.data.errMsg))
-    }
+// Object.keys makes object key value pairs into strings
 
-    const getFinished = () => {
-        authClient.get("/api/books?finished=true")
-            .then(res => {
-                setUserState(prevUserState => ({
-                    ...prevUserState,
-                    books: res.data
-                    
-                }))
-            })
-            .catch(err => console.log(err.response.data.errMsg))
-    } 
-
-    const addUnreadBook = (newBook) => {
-        authClient.post("/api/books/unfinished", newBook)
-        .then(res => {
-            setUserState(prevState => ({
-                ...prevState,
-                books: [...prevState.books, res.data]
-            }))
+    const queryObjectToString = (query) => {
+        let output = ""
+        Object.keys(query).forEach((key, i, arr) => {
+            const separator = i === arr.length -1 ? "" : "&"
+            output += `${key}=${query[key]}${separator}`
         })
-        .catch(err => console.log(err.response.data.errMsg))
+        return output
     }
 
-    const addFinishedBook = (newBook) => {
-        authClient.post("/api/books/finished", newBook)
+    const getBooks = (query) => {
+        const url = `/api/books?${queryObjectToString(query)}`
+        authClient.get(url)
+            .then(res => {
+                setUserState(prevState => ({
+                    ...prevState,
+                    books: res.data
+                }))
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+            return url
+    }
+
+    const addBook = (newBook) => {
+        authClient.post("/api/books", newBook)
         .then(res => {
             setUserState(prevState => ({
                 ...prevState,
@@ -129,7 +118,7 @@ function UserProvider(props){
     }
 
     const editBook = (updatedBook, bookId) => {
-        authClient.put(`/api/books/${bookId}`, updatedBook)
+        return authClient.put(`/api/books/${bookId}`, updatedBook)
             .then(res => {
                 setUserState(prevState => ({
                     ...prevState,
@@ -140,32 +129,35 @@ function UserProvider(props){
     }
 
     //toggle finished and unfinished
-    const markFinished = (bookId) => {
-        authClient.put(`/api/books/move/${bookId}`)
-            .then(res => {
-                setUserState(prevState => ({
-                    ...prevState,
-                    books: prevState.books.filter(book => book._id !== bookId)
-                }))
-            })
-            .catch(err => console.log(err.response.data.errMsg))
+    // const markFinished = (bookId) => {
+    //     authClient.put(`/api/books/${bookId}`)
+    //         .then(res => {
+    //             setUserState(prevState => ({
+    //                 ...prevState,
+    //                 books: prevState.books.filter(book => book._id !== bookId)
+    //             }))
+    //         })
+    //         .catch(err => console.log(err.response.data.errMsg))
+    // }
+
+    const filters = {
+        get unreadBooks(){ return userState.books.filter(b => !b.finished)},
+        get readBooks(){ return userState.books.filter(b => b.finished)},
     }
 
     return(
         <UserContext.Provider
             value={{
                 ...userState,
+                filters,
                 signup,
                 login,
                 logout,
-                getUnread,
-                addUnreadBook,
                 deleteBook,
                 editBook,
-                getFinished,
-                addFinishedBook,
-                markFinished,
-                resetAuthErr
+                resetAuthErr,
+                getBooks,
+                addBook
             }}>
             {props.children}
         </UserContext.Provider>

@@ -60,7 +60,7 @@ function Post(props) {
             <Link key={_id} to={`/comments/${_id}`} className="links">
                 <h2 className="post-title">{title}</h2>
                 <p>{description}</p>
-                <p>posted by {props.user}</p>
+                {/* <p>posted by {props.user}</p> */}
             </Link>
                 { shouldDisplayDelete() ? <button className="x-button" onClick={() => props.delete(_id)}>x</button> : <div></div>}
                 <div className="post-extras">

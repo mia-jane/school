@@ -23,7 +23,7 @@ function AuthForm(props) {
                 <input
                     className="auth-input"
                     id="password"
-                    type="text"
+                    type="password"
                     value={password}
                     name="password"
                     onChange={handleChange}

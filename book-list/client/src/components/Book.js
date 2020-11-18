@@ -4,13 +4,18 @@ import "../css/book.css"
 
 
 function Book(props) {
-    const {title, summary, genre, imageUrl, _id } = props
+    const {title, summary, genre, imageUrl, _id, finished } = props
     const [onEdit, setOnEdit] = useState(false)
 
     const handleEditSubmit = ( updatedBook, bookId) => {
         props.edit(updatedBook, bookId)
-            // .then(() => setOnEdit(false))
+            .then(() => setOnEdit(false))
     }
+
+    // const flipFinished = (bookId) => {
+    //     if(bookId === p)
+    // }
+
     return (
         <div className="book">
             { !onEdit ? 
@@ -22,7 +27,7 @@ function Book(props) {
                 <div className="btns-container">
                     <button className="xBtn" onClick={() => props.delete(props._id)}>x</button>
                     <button className="editBtn" onClick={()=> setOnEdit(true)}>Edit</button>
-                    <button className="finishBtn" onClick={() => props.toggleFinished(props._id)}>{props.finishBtn}</button>
+                    <button className="finishBtn" onClick={() => props.edit({title, summary, genre, imageUrl, finished: !finished}, _id)}>{props.finishBtn}</button>
                 </div>
                 
                 </>

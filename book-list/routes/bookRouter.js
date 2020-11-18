@@ -4,8 +4,8 @@ const Book = require("../models/book")
 
 //get finished books
 bookRouter.get("/", (req, res, next) => {
-    const finished = req.query.finished === "true"
-    Book.find({user: req.user._id, finished: finished}, (err, books) => {
+    // const finished = req.query.finished === "true"
+    Book.find({user: req.user._id, ...req.query}, (err, books) => {
         if(err){
             res.status(500)
             return next(err)
@@ -15,22 +15,10 @@ bookRouter.get("/", (req, res, next) => {
 })
 
 //post unfinished
-bookRouter.post("/finished", (req, res, next) => {
+bookRouter.post("/", (req, res, next) => {
     req.body.user = req.user._id
     const newBook = new Book(req.body)
-    newBook.finished = true
-    newBook.save((err, savedBook) => {
-        if(err){
-            res.status(500)
-            return next(err)
-        }
-        return res.status(201).send(savedBook)
-    })
-})
-
-bookRouter.post("/unfinished", (req, res, next) => {
-    req.body.user = req.user._id
-    const newBook = new Book(req.body)
+    // newBook.finished = true
     newBook.save((err, savedBook) => {
         if(err){
             res.status(500)
@@ -41,8 +29,7 @@ bookRouter.post("/unfinished", (req, res, next) => {
 })
 
 
-//flip finished boolean
-bookRouter.put("/move/:bookId", (req, res, next) => {
+bookRouter.put("/:bookId", (req, res, next) => {
     Book.findById(req.params.bookId, (err, book) => {
         if(book.finished === false){
             book.finished = !book.finished
@@ -65,6 +52,7 @@ bookRouter.put("/move/:bookId", (req, res, next) => {
         }
     })
 })
+
 
 
 bookRouter.put("/:bookId", (req, res, next ) => {

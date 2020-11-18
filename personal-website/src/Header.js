@@ -6,7 +6,7 @@ function header(props) {
         <div className="header">
             <h1>Mia Stroud</h1>
             <span id="subtitle">Full-stack web developer</span>
-            <p>Hello.  I am a full-stack web developer, specializing in front-end web development.  Besides coding, I love studying biology (the genetic code in particular <Emoji symbol="😊" />) and I researched lung cancer in a biology lab for a couple years.  </p>
+            <p>Hi!  I am a full-stack web developer, specializing in css and front-end web development.  Building clean, elegant sites with equally clean and concise code makes me happy <Emoji symbol="😊" /></p>
         </div>
     );
 }

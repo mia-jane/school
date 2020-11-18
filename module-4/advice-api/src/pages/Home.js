@@ -1,17 +1,15 @@
 import React, { useEffect, useState, useContext } from 'react';
 import Heart from "react-animated-heart"
 import {LikeContext} from "./likeContext"
+const axios = require("axios")
 
 
 function Home(props) {
 
-    const {quote, setQuote, likedQuotes, setLikedQuotes} = useContext(LikeContext)
+    const {quote, setQuote, setLikedQuotes} = useContext(LikeContext)
 
-    const axios = require("axios")
-    // const [quote, setQuote] = useState("")
-    const [quotesArr, setQuotesArr] = useState("")
+    const [quotesArr, setQuotesArr] = useState([])
     const [isClick, setClick] = useState(false)
-    // const [likedQuotes, setLikedQuotes] = useState([])
 
     useEffect(() => {
         axios.get("https://type.fit/api/quotes").then(res => {
@@ -28,6 +26,7 @@ function Home(props) {
         const randomQuote = quotesArr[randomQuoteIndex].text
         console.log(randomQuote)
         setQuote(randomQuote)
+        // setQuote({text: randomQuote, _id: uuid()})
         setClick(false)
         // console.log(quotesArr[randomQuoteIndex].text)
         
@@ -36,7 +35,6 @@ function Home(props) {
     const handleHeartClick = () => {
         setClick(!isClick)
         setLikedQuotes(prev => [...prev, quote])
-        // console.log(likedQuotes)
     }
 
     return (

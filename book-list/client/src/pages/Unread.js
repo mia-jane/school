@@ -4,15 +4,18 @@ import AddBookForm from "../components/AddBookForm"
 import {UserContext} from "../context/UserProvider"
 
 function Unread(props) {
-    const {books, getUnread, addUnreadBook, deleteBook, editBook, markFinished} = useContext(UserContext)
+    const {filters, getBooks, addBook, deleteBook, editBook, markFinished} = useContext(UserContext)
 
-    useEffect(() => {getUnread()}, [])
+    useEffect(() => { 
+        getBooks({finished: false})
+    }, [])
+    
 
     return (
         <div className="lists">
             <h1>Unread</h1>
-            <AddBookForm submit={addUnreadBook} btnText="add" />
-            <BookList books={books} delete={deleteBook} edit={editBook} toggleFinished={markFinished} finishBtn="finished" />
+            <AddBookForm submit={addBook} btnText="add" />
+            <BookList books={filters.unreadBooks} delete={deleteBook} edit={editBook} toggleFinished={markFinished} finishBtn="finished" />
         </div>
     );
 }

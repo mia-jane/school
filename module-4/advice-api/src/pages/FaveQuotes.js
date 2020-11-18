@@ -3,11 +3,12 @@ import {LikeContext} from "./likeContext"
 
 function FaveQuotes(props) {
     const {likedQuotes} = useContext(LikeContext)
-    //saving quotes in local storage
     useEffect(() => {
         localStorage.setItem("likedQuotes", JSON.stringify(likedQuotes))
     })
-    const faveQuotes = likedQuotes.map(quote => <p className="likedQuotes">{quote}</p>)
+
+ 
+    const faveQuotes = likedQuotes.map(quote =>  <p className="likedQuotes">{quote}</p>)
 
     return (
         <div className="favQuotes">
