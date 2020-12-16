@@ -41,7 +41,7 @@ function Book(props) {
                         summary={summary}
                         genre={genre}
                         _id={_id}
-                         />
+                    />
                     <button className="close-btn" onClick={() => setOnEdit(false)}>close</button>
                 </>
             }

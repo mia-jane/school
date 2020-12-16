@@ -71,7 +71,7 @@ function UserProvider(props){
     }
 
 
-// Object.keys makes object key value pairs into strings
+// Object.keys makes object key value pairs into array 
 
     const queryObjectToString = (query) => {
         let output = ""
@@ -128,17 +128,6 @@ function UserProvider(props){
             .catch(err => console.log(err.response.data.errMsg))
     }
 
-    //toggle finished and unfinished
-    // const markFinished = (bookId) => {
-    //     authClient.put(`/api/books/${bookId}`)
-    //         .then(res => {
-    //             setUserState(prevState => ({
-    //                 ...prevState,
-    //                 books: prevState.books.filter(book => book._id !== bookId)
-    //             }))
-    //         })
-    //         .catch(err => console.log(err.response.data.errMsg))
-    // }
 
     const filters = {
         get unreadBooks(){ return userState.books.filter(b => !b.finished)},
