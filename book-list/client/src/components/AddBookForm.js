@@ -47,16 +47,16 @@ function AddBookForm(props) {
                 />
                 <input 
                     type="text" 
-                    placeholder="summary"
-                    name="summary"
-                    value={summary}
-                    onChange={handleChange} 
-                />
-                <input 
-                    type="text" 
                     placeholder="genre"
                     name="genre"
                     value={genre}
+                    onChange={handleChange} 
+                />
+                <textarea 
+                    type="text" 
+                    placeholder="summary"
+                    name="summary"
+                    value={summary}
                     onChange={handleChange} 
                 />
                 <button className="add-btn">{props.btnText}</button>
