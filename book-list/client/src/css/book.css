@@ -31,8 +31,8 @@ button {
 }
 
 .btns-container > button:hover {
-    cursor: pointer;
-    background-color: #CFE8EF;
+    /* background-color: #CFE8EF; */
+    background-color: #E9F1F7;
     color: #373F51;
 }
 

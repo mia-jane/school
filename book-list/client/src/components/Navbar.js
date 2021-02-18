@@ -6,7 +6,7 @@ function Navbar(props) {
         <nav>
             <Link className="links" to="/read">Read</Link>
             <Link className="links" to="/unread">Unread</Link>
-            <button className="logout-btn" onClick={props.logout}>Log Out</button>
+            <button className="logout-btn" onClick={props.logout}>sign out</button>
         </nav>
     );
 }

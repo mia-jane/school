@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+.App {
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #BDE0FE;
+  padding: 10px;
+}
+
+.links {
+  margin-left: 50px;
+  margin-right: 50px;
+  color: #32292F;
+  font-family: 'Crimson Text', serif;
+}
+
+h1 {
+  color: #32292F;
+  font-family: 'Crimson Text', serif;
+}
