@@ -8,24 +8,18 @@
     flex-direction: column;
     width: 200px;
     margin: auto;
-    /* border: 3px solid #FA7921; */
-    /* background-color: #FE9920; */
     padding: 10px;
-    /* border-radius: 10px; */
     box-shadow: 0 2px 6px #555;
 }
 
 .book-form > input {
     padding: 10px;
-    /* margin-bottom: 5px; */
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid #FA7921;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 7px;
 }
 
 .book-form > input:focus {
-    /* outline-width: 0; */
     outline: none !important;
     border-bottom: 2px solid #FA7921;
     border-radius: 4px;
@@ -51,13 +45,16 @@ textarea:focus {
     padding-right: 30px;
     font-family: inherit;
     font-size: 20px;
-    background-color: #FA7921;
     color: white;
     border: none;
     margin: auto;
     font-weight: 700;
+    background-color: black;
 }
-
+.add-btn:focus {
+    outline: none;
+    background-color: #d00000;
+}
 .add-btn:hover {
     cursor: pointer;
 }
