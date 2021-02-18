@@ -1,0 +1,17 @@
+.bookList {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.popupBtnContainer {
+  display: flex;
+  justify-content: center;
+}
+.popupBtn {
+  background-color: #ffbf69;
+  height: 50px;
+  border: none;
+  margin:auto;
+  width: 200px;
+}

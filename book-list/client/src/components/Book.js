@@ -12,10 +12,6 @@ function Book(props) {
             .then(() => setOnEdit(false))
     }
 
-    // const flipFinished = (bookId) => {
-    //     if(bookId === p)
-    // }
-
     return (
         <div className="book">
             { !onEdit ? 

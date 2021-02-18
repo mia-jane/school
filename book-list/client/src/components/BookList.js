@@ -5,7 +5,7 @@ function BookList(props) {
     const {books} = props
     const mappedBooks = books.map(book => (<Book {...book} key={book._id} delete={props.delete} edit={props.edit} finishBtn={props.finishBtn} /> ))
     return (
-        <div className="book-list">
+        <div className="bookList">
             {mappedBooks}
         </div>
     );
