@@ -1,3 +1,27 @@
 .calcButton {
-  background-color: purple;
+  width: 25%;
+}
+button {
+  height: 100%;
+  width: 100%;
+  background-color: #FFFFFC;
+  border: none;
+  /* transition: background-color 300ms linear; */
+}
+
+button:hover {
+  background-color: orange;
+}
+
+button:focus {
+  /* background-color: #000000; */
+  outline: 0;
+}
+
+.zero {
+  width: 50%;
+}
+
+.operator {
+  background-color: #FF7F11;
 }
