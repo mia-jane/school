@@ -1,3 +1,7 @@
+@keyframes color-change {
+  50%  {background-color: orange;}
+}
+
 .calcButton {
   width: 25%;
 }
@@ -6,22 +10,16 @@ button {
   width: 100%;
   background-color: #FFFFFC;
   border: none;
-  /* transition: background-color 300ms linear; */
 }
-
-button:hover {
-  background-color: orange;
-}
-
 button:focus {
   /* background-color: #000000; */
   outline: 0;
+  animation-name: color-change;
+  animation-duration: 200ms;
 }
-
 .zero {
   width: 50%;
 }
-
 .operator {
   background-color: #FF7F11;
 }

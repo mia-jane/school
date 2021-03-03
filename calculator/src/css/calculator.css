@@ -18,10 +18,10 @@
   text-align: right;
   color: #FFFFFC;
   font-size: 30px;
+  line-height: 40px;
 }
 
 .keypad {
-  background-color: aqua;
   display: flex;
   flex-direction: row;
   align-content: stretch;

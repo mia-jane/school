@@ -1,33 +1,42 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import "../css/calculator.css"
 import CalcButton from "./CalcButton"
 
 function Calculator(props) {
+  const [firstValue, setFirstValue] = useState(0)
+  const [secondValue, setSecondValue] = useState("")
+  const [op, setOp] = useState(null)
+  const [result, setResult] = useState(0)
+
+  const handleOperation = () => {
+    console.log("hi")
+  }
+
   return (
     <div className="calculator">
       <div className="screen">
-        <h1>0</h1>
+        <h1 className="result">{result}</h1>
       </div>
       <div className="keypad">
-        <CalcButton className="calcButton" symbol="AC" />
-        <CalcButton className="calcButton" symbol="+/-" />
-        <CalcButton className="calcButton" symbol="%" />
-        <CalcButton className="calcButton" btnType="operator" symbol="/" />
-        <CalcButton className="calcButton" symbol="7" />
-        <CalcButton className="calcButton" symbol="8" />
-        <CalcButton className="calcButton" symbol="9" />
-        <CalcButton className="calcButton" btnType="operator" symbol="x" />
-        <CalcButton className="calcButton" symbol="4" />
-        <CalcButton className="calcButton" symbol="5" />
-        <CalcButton className="calcButton" symbol="6" />
-        <CalcButton className="calcButton" btnType="operator" symbol="-" />
-        <CalcButton className="calcButton" symbol="1" />
-        <CalcButton className="calcButton" symbol="2" />
-        <CalcButton className="calcButton" symbol="3" />
-        <CalcButton className="calcButton" btnType="operator" symbol="+" />
-        <CalcButton className="zero" symbol="0" />
-        <CalcButton className="calcButton" symbol="." />
-        <CalcButton className="calcButton" btnType="operator" symbol="=" />
+        <CalcButton className="calcButton" keyValue={"AC"} onClick={handleOperation} />
+        <CalcButton className="calcButton" keyValue={"+/-"} onClick={handleOperation}/>
+        <CalcButton className="calcButton" keyValue={"%"} onClick={handleOperation}/>
+        <CalcButton className="calcButton" btnType="operator" keyValue={"/"} onClick={handleOperation}/>
+        <CalcButton className="calcButton" keyValue={7} onClick={handleOperation}/>
+        <CalcButton className="calcButton" keyValue={8} onClick={handleOperation}/>
+        <CalcButton className="calcButton" keyValue={9} onClick={handleOperation}/>
+        <CalcButton className="calcButton" btnType="operator" keyValue={"x"} onClick={handleOperation}/>
+        <CalcButton className="calcButton" keyValue={4} onClick={handleOperation}/>
+        <CalcButton className="calcButton" keyValue={5} onClick={handleOperation}/>
+        <CalcButton className="calcButton" keyValue={6} onClick={handleOperation}/>
+        <CalcButton className="calcButton" btnType="operator" keyValue={"-"} onClick={handleOperation}/>
+        <CalcButton className="calcButton" keyValue={1} onClick={handleOperation}/>
+        <CalcButton className="calcButton" keyValue={2} onClick={handleOperation}/>
+        <CalcButton className="calcButton" keyValue={3} onClick={handleOperation}/>
+        <CalcButton className="calcButton" btnType="operator" keyValue={"+"} onClick={handleOperation}/>
+        <CalcButton className="zero" keyValue={0} onClick={handleOperation}/>
+        <CalcButton className="calcButton" keyValue={"."} onClick={handleOperation}/>
+        <CalcButton className="calcButton" btnType="operator" keyValue={"="} onClick={handleOperation}/>
       </div>
     </div>
   );
