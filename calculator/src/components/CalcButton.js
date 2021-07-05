@@ -4,7 +4,7 @@ import "../css/calcButton.css"
 function CalcButton(props) {
   return (
     <div className={props.className}>
-      <button className={`${props.btnType}`} onClick={() => props.onClick()}>{props.keyValue}</button>
+      <button className={`${props.btnType}`} onClick={() => props.onClick(props.keyValue)}>{props.keyValue}</button>
     </div>
   );
 }

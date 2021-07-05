@@ -1,7 +1,6 @@
 @keyframes color-change {
   50%  {background-color: orange;}
 }
-
 .calcButton {
   width: 25%;
 }
@@ -12,7 +11,6 @@ button {
   border: none;
 }
 button:focus {
-  /* background-color: #000000; */
   outline: 0;
   animation-name: color-change;
   animation-duration: 200ms;

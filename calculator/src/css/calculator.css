@@ -2,25 +2,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 450px;
-  margin-top: 80px;
+  margin: auto;
   height: 319px;
   width: 232px;
   background-color: #FFFFFC ;
   border-radius: 20px;
-  border: 2px solid #f6f6eb;
+  border: 4px solid #f6f6eb;
 }
-
 .screen {
   height: 100px;
   background-color: #000000;
   border-radius: 10px 10px 0px 0px;
   text-align: right;
   color: #FFFFFC;
-  font-size: 30px;
   line-height: 40px;
+  padding-right: 15px;
 }
-
 .keypad {
   display: flex;
   flex-direction: row;
