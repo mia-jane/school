@@ -1,3 +1,23 @@
+@keyframes color-change {
+  50%  {background-color: orange;}
+}
 .calcButton {
-  background-color: purple;
+  width: 25%;
+}
+button {
+  height: 100%;
+  width: 100%;
+  background-color: #FFFFFC;
+  border: none;
+}
+button:focus {
+  outline: 0;
+  animation-name: color-change;
+  animation-duration: 200ms;
+}
+.zero {
+  width: 50%;
+}
+.operator {
+  background-color: #FF7F11;
 }

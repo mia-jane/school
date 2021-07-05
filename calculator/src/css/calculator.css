@@ -1,20 +1,27 @@
 .calculator {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin: 0 auto;
+  margin: auto;
   height: 319px;
   width: 232px;
-  background-color: #d7ecd9 ;
+  background-color: #FFFFFC ;
   border-radius: 20px;
-  border: 2px solid #f6f6eb;
+  border: 4px solid #f6f6eb;
 }
-
 .screen {
   height: 100px;
-  width: 350px;
-  background-color: #f6f6eb;
+  background-color: #000000;
   border-radius: 10px 10px 0px 0px;
   text-align: right;
-  color: #32292F;
-  font-size: 30px;
+  color: #FFFFFC;
+  line-height: 40px;
+  padding-right: 15px;
+}
+.keypad {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  flex-wrap: wrap;
+  height: 219px;
 }
